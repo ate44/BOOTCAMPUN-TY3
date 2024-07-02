@@ -6,9 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="0bfb88c0-0c1b-45b1-8023-9e19f3c361aa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BOOTCAMPUNITY-3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BOOTCAMPUNITY-3/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Scripts/CreatureController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Beliz/Scripts/CreatureController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/LowPoly Fantasy Monsters Pack Ver1.0_Demo/Animations/Mecanim/goblin/goblin.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Beliz/LowPoly Fantasy Monsters Pack Ver1.0_Demo/Animations/Mecanim/goblin/goblin.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/LowPoly Fantasy Monsters Pack Ver1.0_Demo/Animations/Mecanim/troll/troll.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Beliz/LowPoly Fantasy Monsters Pack Ver1.0_Demo/Animations/Mecanim/troll/troll.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Scripts/GoblinController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Beliz/Scripts/GoblinController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Scripts/TrollController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Beliz/Scripts/TrollController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Beliz.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Beliz.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +99,8 @@
       <updated>1719398085177</updated>
       <workItem from="1719398089093" duration="65000" />
       <workItem from="1719405127221" duration="4063000" />
-      <workItem from="1719840922675" duration="5547000" />
+      <workItem from="1719840922675" duration="6633000" />
+      <workItem from="1719922282573" duration="1865000" />
     </task>
     <servers />
   </component>
