@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("IsTargetLocked", !isTargetLocked);
             isTargetLocked = !isTargetLocked;
         }
-        else if (Input.GetKeyDown(KeyCode.F)) 
+        else if (Input.GetKeyDown(KeyCode.F) && !anim.GetBool("IsAttacking")) 
         {          
             anim.SetBool("IsWeaponEquipped", !isWeaponEquipped);
             isWeaponEquipped = !isWeaponEquipped;
