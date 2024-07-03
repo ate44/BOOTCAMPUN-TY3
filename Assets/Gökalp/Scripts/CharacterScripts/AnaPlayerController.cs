@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class AnaPlayerController : MonoBehaviour
 {
     public Transform player; //oyuncu için referans
 
