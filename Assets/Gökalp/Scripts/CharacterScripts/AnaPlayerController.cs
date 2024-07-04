@@ -33,6 +33,8 @@ public class AnaPlayerController : MonoBehaviour
     public float rotationSpeed = 20f;
     public float moveSpeed = 1f; //animasyonlar arasýndaki geçiþi smooth yapmak için bir bekleme süresi
 
+    private bool canRotate = true;
+
     // Baþlangýçta çalýþtýrýlan metod
     private void Start()
     {
@@ -62,6 +64,8 @@ public class AnaPlayerController : MonoBehaviour
     // Oyuncunun dönmesini kontrol eden metod
     private void HandleRotation()
     {
+        if (!canRotate) return;
+
         // Kameranýn dönüþ yönünü hesapla
         Vector3 rotationOffset = mainCamera.transform.TransformDirection(direction);
         rotationOffset.y = 0;
@@ -75,8 +79,16 @@ public class AnaPlayerController : MonoBehaviour
         // Hedefin dönüþ yönünü hesapla
         Vector3 rotationOffset = targetLock.transform.position - player.position;
         rotationOffset.y = 0;
-        // Oyuncunun ileri yönünü yavaþça hedefin yönüne doðru deðiþtir
-        player.forward += Vector3.Lerp(player.forward, rotationOffset, Time.deltaTime * rotationSpeed);
+
+        float lookDirection = Vector3.SignedAngle(player.forward, rotationOffset, Vector3.up);
+        anim.SetFloat("LookDirection", lookDirection);
+
+        if(anim.GetFloat("Speed") > .1f)
+        {
+            // Oyuncunun ileri yönünü yavaþça hedefin yönüne doðru deðiþtir
+            player.forward += Vector3.Lerp(player.forward, rotationOffset, Time.deltaTime * rotationSpeed);
+        }
+        
     }
 
     // Girdi verilerini iþleyen metod
@@ -91,6 +103,11 @@ public class AnaPlayerController : MonoBehaviour
         isWeaponEquipped = anim.GetBool("IsWeaponEquipped");
         // Animatörden hedefin kilitlenip kilitlenmediðini kontrol et
         isTargetLocked = anim.GetBool("IsTargetLocked");
+
+        canRotate = anim.GetBool("CanRotate");
+
+        float lookDirection = Vector3.SignedAngle(player.forward, Vector3.ProjectOnPlane(mainCamera.transform.forward,Vector3.up), Vector3.up);
+        anim.SetFloat("LookDirection", lookDirection);
 
         // Silah kuþanýlmýþsa ve boþluk tuþuna basýlmýþsa hedef kilidini deðiþtir
         if (isWeaponEquipped && Input.GetKeyDown(KeyCode.Space))
