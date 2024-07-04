@@ -28,15 +28,17 @@ public class MeleeController : MonoBehaviour
 
     int attackId = 0;
 
-    // Start, ilk karede çalýþtýrýlýr
+    private HittableRigidHandler hittableRigidHandler;
+
     void Start()
     {
         // Animator bileþenini al
         anim = GetComponentInChildren<Animator>();
-        weaponCollider = (BoxCollider) weaponHandler.weapon.GetComponent<Collider>();
+        weaponCollider = (BoxCollider)weaponHandler.weapon.GetComponent<Collider>();
+        hittableRigidHandler = GetComponent<HittableRigidHandler>();
+        hittableRigidHandler.InitializePool(8);
     }
 
-    // Update, her karede bir kez çaðrýlýr
     void Update()
     {
         // Sol fare tuþuna basýldýðýnda saldýrý tipi 1 olarak ayarla
@@ -49,7 +51,10 @@ public class MeleeController : MonoBehaviour
         {
             SetAttack(2);
         }
+    }
 
+    private void LateUpdate()
+    {
         if (anim.GetBool("IsDamageOn"))
         {
             CheckTrail();
@@ -68,6 +73,7 @@ public class MeleeController : MonoBehaviour
             anim.SetTrigger("Attack");
             // Saldýrý tipini belirle
             anim.SetInteger("AttackType", attackType);
+            hittableRigidHandler.ClearCollisionList();
         }
     }
 
@@ -91,16 +97,15 @@ public class MeleeController : MonoBehaviour
         Collider[] hits = Physics.OverlapBox(bo.position, bo.size / 2, bo.rotation, hitLayers, QueryTriggerInteraction.Ignore);
 
         Dictionary<long, Collider> colliderList = new Dictionary<long, Collider>();
-        CollectColliders(hits, colliderList);
+        CollectColliders(bo, hits, colliderList);
 
         foreach (BufferObj cbo in trailFillerList)
         {
             hits = Physics.OverlapBox(cbo.position, cbo.size / 2, cbo.rotation, hitLayers, QueryTriggerInteraction.Ignore);
-            CollectColliders(hits, colliderList);
-
+            CollectColliders(cbo, hits, colliderList);
         }
 
-        foreach(Collider collider in colliderList.Values)
+        foreach (Collider collider in colliderList.Values)
         {
             HitData hd = new HitData();
             hd.id = attackId;
@@ -112,15 +117,19 @@ public class MeleeController : MonoBehaviour
         }
     }
 
-    private static void CollectColliders(Collider[] hits, Dictionary<long, Collider> colliderList)
+    private void CollectColliders(BufferObj source, Collider[] hits, Dictionary<long, Collider> colliderList)
     {
+        if (hits.Length > 0)
+        {
+            hittableRigidHandler.ActivateHittableRigid(source.position, source.rotation);
+        }
+
         for (int i = 0; i < hits.Length; i++)
         {
             if (!colliderList.ContainsKey(hits[i].GetInstanceID()))
             {
                 colliderList.Add(hits[i].GetInstanceID(), hits[i]);
             }
-            
         }
     }
 
@@ -130,7 +139,7 @@ public class MeleeController : MonoBehaviour
 
         float distance = Mathf.Abs((from.position - to.position).magnitude);
 
-        if(distance > weaponCollider.size.z)
+        if (distance > weaponCollider.size.z)
         {
             float steps = Mathf.Ceil(distance / weaponCollider.size.z);
 
@@ -160,7 +169,6 @@ public class MeleeController : MonoBehaviour
                 Gizmos.color = Color.blue;
                 Gizmos.matrix = Matrix4x4.TRS(obj.position, obj.rotation, Vector3.one);
                 Gizmos.DrawWireCube(Vector3.zero, obj.size);
-
             }
 
             foreach (BufferObj obj in trailFillerList)
@@ -168,9 +176,7 @@ public class MeleeController : MonoBehaviour
                 Gizmos.color = Color.yellow;
                 Gizmos.matrix = Matrix4x4.TRS(obj.position, obj.rotation, Vector3.one);
                 Gizmos.DrawWireCube(Vector3.zero, obj.size);
-
             }
         }
-        
     }
 }
