@@ -1,10 +1,13 @@
+using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 [RequireComponent (typeof(CharacterController))]
 
 public class FPSController : MonoBehaviour
 {
+    private InventoryManager inventoryManager;
+
     public Camera playerCamera;
     public float walkSpeed = 6f;
     public float runSpeed = 12.0f;
@@ -23,6 +26,8 @@ public class FPSController : MonoBehaviour
 
     void Start()
     {
+        inventoryManager = InventoryManager.Instance;
+
         characterController = GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -30,6 +35,19 @@ public class FPSController : MonoBehaviour
 
     void Update()
     {
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, transform.forward, out hit, 2f))
+            {
+                Potion potion = hit.collider.gameObject.GetComponent<Potion>();
+                if (potion != null)
+                {
+                    inventoryManager.AddPotion(potion.potionType);
+                    Destroy(hit.collider.gameObject);
+                }
+            }
+        }
+
         #region Handles Movement
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         Vector3 right = transform.TransformDirection(Vector3.right);

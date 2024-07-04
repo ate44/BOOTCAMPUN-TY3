@@ -24,17 +24,21 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        potion1Text.text = "Potion1: " + potion1Count;
+        potion2Text.text = "Potion2: " + potion2Count;
+    }
+
     public void AddPotion(string potionType)
     {
         if (potionType == "Potion1")
         {
             potion1Count++;
-            potion1Text.text = "Potion1: " + potion1Count;
         }
         else if (potionType == "Potion2")
         {
             potion2Count++;
-            potion2Text.text = "Potion2: " + potion2Count;
         }
     }
 }
