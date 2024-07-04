@@ -8,12 +8,14 @@ public class CreatureController : MonoBehaviour
 {
     public Animator animator; 
     public float speed = 3.0f;
-    public float turnSpeed = 200.0f; 
+    //public float turnSpeed = 200.0f; 
     public Vector3 boundaryMin; 
     public Vector3 boundaryMax; 
 
     private bool isWalking = false;
     private Vector3 targetDirection;
+
+    private readonly string[] animationParameters = { "walk", "idle2", "sniff", "roar", "crouch" };
 
     void Start()
     {
@@ -22,8 +24,9 @@ public class CreatureController : MonoBehaviour
             animator = GetComponent<Animator>();
         }
         targetDirection = transform.forward;
-        
+
         SetRandomStartingPosition();
+        StartCoroutine(PlayRandomAnimation());
     }
 
     void Update()
@@ -38,18 +41,16 @@ public class CreatureController : MonoBehaviour
     }
     
     void SetRandomStartingPosition()
-        {
-            float randomX = Random.Range(boundaryMin.x, boundaryMax.x);
-            float randomZ = Random.Range(boundaryMin.z, boundaryMax.z);
-            transform.position = new Vector3(randomX, transform.position.y, randomZ);
-        }
+    {
+        float randomX = Random.Range(boundaryMin.x, boundaryMax.x);
+        float randomZ = Random.Range(boundaryMin.z, boundaryMax.z);
+        transform.position = new Vector3(randomX, transform.position.y, randomZ);
+    }
 
     void MoveCreature()
     {
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
-
-        Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * turnSpeed);
+        
 
         Vector3 position = transform.position;
         if (position.x < boundaryMin.x || position.x > boundaryMax.x || position.z < boundaryMin.z || position.z > boundaryMax.z)
@@ -59,19 +60,39 @@ public class CreatureController : MonoBehaviour
         }
     }
 
-    public void OnWalkAnimationFinished()
+    IEnumerator PlayRandomAnimation()
     {
-        Debug.Log("Walk animation finished, changing direction.");
-        // Rotate randomly when walk animation finishes
-        targetDirection = new Vector3(Random.Range(-1.0f, 1.0f), 0, Random.Range(-1.0f, 1.0f)).normalized;
+        while (true)
+        {
+            int randomIndex = Random.Range(0, animationParameters.Length);
+            string chosenAnimation = animationParameters[randomIndex];
+
+            foreach (string parameter in animationParameters)
+            {
+                animator.SetBool(parameter, false);
+            }
+
+            animator.SetBool(chosenAnimation, true);
+            Debug.Log($"Playing animation: {chosenAnimation}");
+
+            float waitTime = Random.Range(2.0f, 5.0f);
+            yield return new WaitForSeconds(waitTime);
+
+            if (chosenAnimation == "Creep|Walk1_Action" || chosenAnimation == "Creep|Crouch_Action")
+            {
+                targetDirection = new Vector3(Random.Range(-1.0f, 1.0f), 0, Random.Range(-1.0f, 1.0f)).normalized;
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Triggered by: " + other.name);  
         if (other.CompareTag("Player"))
         {
-            animator.Play("Creep|Punch_Action ");
-            animator.SetBool("isDetected", true);
+            animator.SetBool("attack", true);
         }
     }
 }
+
+
