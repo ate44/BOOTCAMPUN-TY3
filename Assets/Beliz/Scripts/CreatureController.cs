@@ -6,93 +6,85 @@ using Random = UnityEngine.Random;
 
 public class CreatureController : MonoBehaviour
 {
-    public Animator animator; 
-    public float speed = 3.0f;
-    //public float turnSpeed = 200.0f; 
-    public Vector3 boundaryMin; 
-    public Vector3 boundaryMax; 
-
-    private bool isWalking = false;
-    private Vector3 targetDirection;
-
-    private readonly string[] animationParameters = { "walk", "idle2", "sniff", "roar", "crouch" };
-
-    void Start()
-    {
-        if (animator == null)
-        {
-            animator = GetComponent<Animator>();
-        }
-        targetDirection = transform.forward;
-
-        SetRandomStartingPosition();
-        StartCoroutine(PlayRandomAnimation());
-    }
-
-    void Update()
-    {
-        isWalking = animator.GetCurrentAnimatorStateInfo(0).IsName("Creep|Walk1_Action") || 
-                    animator.GetCurrentAnimatorStateInfo(0).IsName("Creep|Crouch_Action");
-
-        if (isWalking)
-        {
-            MoveCreature();
-        }
-    }
-    
-    void SetRandomStartingPosition()
-    {
-        float randomX = Random.Range(boundaryMin.x, boundaryMax.x);
-        float randomZ = Random.Range(boundaryMin.z, boundaryMax.z);
-        transform.position = new Vector3(randomX, transform.position.y, randomZ);
-    }
-
-    void MoveCreature()
-    {
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+    public Animator animator;
+        public string isWalkingParameter = "walk";
+        public float minWaitTime = 2.0f;
+        public float maxWaitTime = 5.0f;
+        public float speed = 3.0f;
+        public string attackParameter = "attack";
         
-
-        Vector3 position = transform.position;
-        if (position.x < boundaryMin.x || position.x > boundaryMax.x || position.z < boundaryMin.z || position.z > boundaryMax.z)
+        private bool isWalking = false;
+        private bool isPlayerDetected = false;
+    
+        void Start()
         {
-            Vector3 directionToCenter = (new Vector3((boundaryMin.x + boundaryMax.x) / 2, position.y, (boundaryMin.z + boundaryMax.z) / 2) - position).normalized;
-            targetDirection = directionToCenter;
-        }
-    }
-
-    IEnumerator PlayRandomAnimation()
-    {
-        while (true)
-        {
-            int randomIndex = Random.Range(0, animationParameters.Length);
-            string chosenAnimation = animationParameters[randomIndex];
-
-            foreach (string parameter in animationParameters)
+            if (animator == null)
             {
-                animator.SetBool(parameter, false);
+                animator = GetComponent<Animator>();
             }
-
-            animator.SetBool(chosenAnimation, true);
-            Debug.Log($"Playing animation: {chosenAnimation}");
-
-            float waitTime = Random.Range(2.0f, 5.0f);
-            yield return new WaitForSeconds(waitTime);
-
-            if (chosenAnimation == "Creep|Walk1_Action" || chosenAnimation == "Creep|Crouch_Action")
+    
+            StartCoroutine(PlayRandomAnimation());
+        }
+    
+        void Update()
+        {
+            if (isWalking && !isPlayerDetected)
             {
-                targetDirection = new Vector3(Random.Range(-1.0f, 1.0f), 0, Random.Range(-1.0f, 1.0f)).normalized;
+                transform.Translate(Vector3.forward * speed * Time.deltaTime);
             }
         }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("Triggered by: " + other.name);  
-        if (other.CompareTag("Player"))
+    
+        IEnumerator PlayRandomAnimation()
         {
-            animator.SetBool("attack", true);
+            while (true)
+            {
+                if (!isPlayerDetected)
+                {
+                    isWalking = Random.value > 0.5f;
+                    animator.SetBool(isWalkingParameter, isWalking);
+    
+                    float waitTime = Random.Range(minWaitTime, maxWaitTime);
+                    yield return new WaitForSeconds(waitTime);
+                }
+                else
+                {
+                    yield return null;
+                }
+            }
         }
-    }
+    
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag("Player"))
+            {
+                isPlayerDetected = true;
+                StartCoroutine(AttackPlayer());
+            }
+        }
+    
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.CompareTag("Player"))
+            {
+                isPlayerDetected = false;
+                animator.SetBool(attackParameter, false);
+                animator.SetBool(isWalkingParameter, false);
+                StopCoroutine(AttackPlayer());
+            }
+        }
+    
+        IEnumerator AttackPlayer()
+        {
+            while (isPlayerDetected)
+            {
+                animator.SetBool(attackParameter, true);
+    
+                yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
+    
+                animator.SetBool(attackParameter, false);
+                yield return new WaitForEndOfFrame();
+            }
+        }
 }
 
 
