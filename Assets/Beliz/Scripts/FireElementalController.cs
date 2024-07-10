@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class VikingController : MonoBehaviour
+public class FireElementalController : MonoBehaviour
 {
     public Animator animator;
     public string isWalkingParameter = "walk";

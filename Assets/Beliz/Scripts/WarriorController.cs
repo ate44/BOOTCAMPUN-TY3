@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class WarriorController : MonoBehaviour
@@ -10,7 +9,9 @@ public class WarriorController : MonoBehaviour
     public float maxWaitTime = 5.0f;
     public float speed = 3.0f;
     public string attackParameter = "attack";
-    
+    public Vector3 boundaryMin; 
+    public Vector3 boundaryMax; 
+
     private bool isWalking = false;
     private bool isPlayerDetected = false;
 
@@ -21,6 +22,9 @@ public class WarriorController : MonoBehaviour
             animator = GetComponent<Animator>();
         }
 
+        float posX = Random.Range(boundaryMin.x, boundaryMax.x);
+        float posZ = Random.Range(boundaryMin.z, boundaryMax.z);
+        transform.position = new Vector3(posX, transform.position.y, posZ);
         StartCoroutine(PlayRandomAnimation());
     }
 
@@ -28,7 +32,7 @@ public class WarriorController : MonoBehaviour
     {
         if (isWalking && !isPlayerDetected)
         {
-            transform.Translate(Vector3.forward * speed * Time.deltaTime);
+            MoveAndCheckBoundaries();
         }
     }
 
@@ -81,6 +85,20 @@ public class WarriorController : MonoBehaviour
 
             animator.SetBool(attackParameter, false);
             yield return new WaitForEndOfFrame();
+        }
+    }
+
+    private void MoveAndCheckBoundaries()
+    {
+        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+
+        Vector3 position = transform.position;
+
+        if (position.x < boundaryMin.x || position.x > boundaryMax.x || position.z < boundaryMin.z || position.z > boundaryMax.z)
+        {
+            Vector3 directionToCenter = (new Vector3((boundaryMin.x + boundaryMax.x) / 2, position.y, (boundaryMin.z + boundaryMax.z) / 2) - position).normalized;
+            Quaternion targetRotation = Quaternion.LookRotation(directionToCenter);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
         }
     }
 }

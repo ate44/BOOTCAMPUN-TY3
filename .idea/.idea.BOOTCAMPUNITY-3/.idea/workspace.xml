@@ -5,22 +5,92 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0bfb88c0-0c1b-45b1-8023-9e19f3c361aa" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/DemoSceneAssets/DemoAnimCont.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/DemoSceneAssets/DemoAnimCont.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/DemoSceneAssets/DemoScenePlaneMat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/DemoSceneAssets/DemoScenePlaneMat.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/DemoSceneAssets/Materials.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/DemoSceneAssets/Materials/plane_DefaultMaterial_AlbedoTransparency.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/DemoSceneAssets/Materials/plane_DefaultMaterial_AlbedoTransparency.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/DemoSceneAssets/Materials/plane_DefaultMaterial_MetallicSmoothness.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/DemoSceneAssets/Materials/plane_DefaultMaterial_MetallicSmoothness.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/DemoSceneAssets/Materials/plane_DefaultMaterial_Normal.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/DemoSceneAssets/Materials/plane_DefaultMaterial_Normal.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Scripts/CreatureController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Beliz/Scripts/CreatureController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolygonAdventure/Materials/PolyAdventureMaterial_Dark_01.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PolygonAdventure/Materials/PolyAdventureMaterial_Dark_01.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolygonNature/FX/FX_Models/Materials/ButterflyPipeMat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PolygonNature/FX/FX_Models/Materials/ButterflyPipeMat.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolygonNature/Materials/Misc/PolygonNature_MountainSkybox.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PolygonNature/Materials/Misc/PolygonNature_MountainSkybox.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolygonParticleFX/Materials/PolygonParticleFX_Emissive_Fire.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PolygonParticleFX/Materials/PolygonParticleFX_Emissive_Fire.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolygonParticleFX/Materials/PolygonParticleFX_Flies.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PolygonParticleFX/Materials/PolygonParticleFX_Flies.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PolygonParticleFX/Materials/PolygonParticleFX_Smoke_Mat_03.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PolygonParticleFX/Materials/PolygonParticleFX_Smoke_Mat_03.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.BOOTCAMPUNITY-3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BOOTCAMPUNITY-3/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/CreepDemoScene.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/CreepDemoScene.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/DemoSceneAssets.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/DemoSceneAssets/DemoAnimCont.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/DemoSceneAssets/DemoAnimCont.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/DemoSceneAssets/DemoScenePlaneMat.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/DemoSceneAssets/DemoScenePlaneMat.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/DemoSceneAssets/plane_DefaultMaterial_AlbedoTransparency.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/DemoSceneAssets/plane_DefaultMaterial_AlbedoTransparency.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/DemoSceneAssets/plane_DefaultMaterial_MetallicSmoothness.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/DemoSceneAssets/plane_DefaultMaterial_MetallicSmoothness.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/DemoSceneAssets/plane_DefaultMaterial_Normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/DemoSceneAssets/plane_DefaultMaterial_Normal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Materials.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Materials/Creep1_mat.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Materials/Creep1_mat.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Materials/Creep2_mat.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Materials/Creep2_mat.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Materials/Creep3_mat.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Materials/Creep3_mat.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Meshes.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Meshes/Creep_mesh.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Meshes/Creep_mesh.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Meshes/Creep_mesh_lod1.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Meshes/Creep_mesh_lod1.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Prefabs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Prefabs/Creep1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Prefabs/Creep1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Prefabs/Creep2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Prefabs/Creep2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Prefabs/Creep3.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Prefabs/Creep3.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Textures.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Textures/tex.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Textures/tex/Creep_BaseColor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Textures/tex/Creep_BaseColor.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Textures/tex/Creep_Metallic.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Textures/tex/Creep_Metallic.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Textures/tex/Creep_Normal_DirectX.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Textures/tex/Creep_Normal_DirectX.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Textures/tex/Creep_Normal_OpenGL.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Textures/tex/Creep_Normal_OpenGL.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Textures/tex/Creep_Roughness.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Textures/tex/Creep_Roughness.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Textures/tex/occlusion.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Textures/tex/occlusion.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Textures/tex/scatter.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Textures/tex/scatter.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Textures/tex2.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Textures/tex2/Creep_BaseColor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Textures/tex2/Creep_BaseColor.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Textures/tex2/Creep_Metallic.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Textures/tex2/Creep_Metallic.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Textures/tex2/Creep_Normal_DirectX.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Textures/tex2/Creep_Normal_DirectX.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Textures/tex2/Creep_Normal_OpenGL.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Textures/tex2/Creep_Normal_OpenGL.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Textures/tex2/Creep_Roughness.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Textures/tex2/Creep_Roughness.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Textures/tex2/occlusion.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Textures/tex2/occlusion.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Textures/tex2/scatter.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Textures/tex2/scatter.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Textures/tex3.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Textures/tex3/Creep_BaseColor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Textures/tex3/Creep_BaseColor.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Textures/tex3/Creep_Metallic.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Textures/tex3/Creep_Metallic.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Textures/tex3/Creep_Normal_DirectX.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Textures/tex3/Creep_Normal_DirectX.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Textures/tex3/Creep_Normal_OpenGL.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Textures/tex3/Creep_Normal_OpenGL.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Textures/tex3/Creep_Roughness.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Textures/tex3/Creep_Roughness.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Textures/tex3/occlusion.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Textures/tex3/occlusion.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Textures/tex3/scatter.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Creep Horror Creature/Textures/tex3/scatter.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Scripts/ElementalController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Scripts/ElementalController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Scripts/GoblinController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Beliz/Scripts/GoblinController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Scripts/TrollController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Beliz/Scripts/TrollController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Scripts/VikingController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Beliz/Scripts/VikingController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Scripts/WarriorController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Beliz/Scripts/WarriorController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Beliz.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Beliz.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -116,6 +186,7 @@
       <workItem from="1720008911151" duration="3215000" />
       <workItem from="1720099376376" duration="2336000" />
       <workItem from="1720110705299" duration="689000" />
+      <workItem from="1720622644495" duration="3620000" />
     </task>
     <servers />
   </component>
