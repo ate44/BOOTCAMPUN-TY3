@@ -35,6 +35,9 @@ public class AnaPlayerController : MonoBehaviour
 
     private bool canRotate = true;
 
+    public ParticleSystem dustEffect;
+
+
     // Baþlangýçta çalýþtýrýlan metod
     private void Start()
     {
@@ -109,6 +112,16 @@ public class AnaPlayerController : MonoBehaviour
         float lookDirection = Vector3.SignedAngle(player.forward, Vector3.ProjectOnPlane(mainCamera.transform.forward,Vector3.up), Vector3.up);
         anim.SetFloat("LookDirection", lookDirection);
 
+        // Toz efektini kontrol et
+        if (anim.GetFloat("Speed") > 0.1f)
+        {
+            CreateDust();
+        }
+        else
+        {
+            dustEffect.Stop();
+        }
+
         // Silah kuþanýlmýþsa ve boþluk tuþuna basýlmýþsa hedef kilidini deðiþtir
         if (isWeaponEquipped && Input.GetKeyDown(KeyCode.Space))
         {
@@ -128,5 +141,12 @@ public class AnaPlayerController : MonoBehaviour
                 isTargetLocked = false;
             }
         }
+
+
+    }
+
+    private void CreateDust()
+    {
+        dustEffect.Play();
     }
 }

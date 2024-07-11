@@ -30,6 +30,7 @@ public class MeleeController : MonoBehaviour
 
     private HittableRigidHandler hittableRigidHandler;
 
+
     void Start()
     {
         // Animator bileþenini al
@@ -67,13 +68,15 @@ public class MeleeController : MonoBehaviour
         // Animator'daki "CanAttack" bool parametresi true ise saldýrý baþlat
         if (anim.GetBool("CanAttack"))
         {
-            attackId++;
+            //attackId++;
 
             // "Attack" tetikleyicisini ayarla
             anim.SetTrigger("Attack");
             // Saldýrý tipini belirle
             anim.SetInteger("AttackType", attackType);
             hittableRigidHandler.ClearCollisionList();
+
+            //slash efekti buraya gelecek
         }
     }
 
