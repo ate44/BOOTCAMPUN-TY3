@@ -30,6 +30,8 @@ public class MeleeController : MonoBehaviour
 
     private HittableRigidHandler hittableRigidHandler;
 
+    public ParticleSystem swordSlashEffect;
+
 
     void Start()
     {
@@ -77,6 +79,11 @@ public class MeleeController : MonoBehaviour
             hittableRigidHandler.ClearCollisionList();
 
             //slash efekti buraya gelecek
+            CreateSwordSlash();
+        }
+        else
+        {
+            swordSlashEffect.Stop();
         }
     }
 
@@ -181,5 +188,10 @@ public class MeleeController : MonoBehaviour
                 Gizmos.DrawWireCube(Vector3.zero, obj.size);
             }
         }
+    }
+
+    private void CreateSwordSlash()
+    {
+        swordSlashEffect.Play();
     }
 }
