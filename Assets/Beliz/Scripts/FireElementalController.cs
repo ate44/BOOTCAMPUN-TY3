@@ -9,8 +9,8 @@ public class FireElementalController : MonoBehaviour
     public float maxWaitTime = 5.0f;
     public float speed = 3.0f;
     public string attackParameter = "attack";
-    public Vector3 boundaryMin; 
-    public Vector3 boundaryMax; 
+    public Vector3 boundaryMin; // Minimum boundary point
+    public Vector3 boundaryMax; // Maximum boundary point
 
     private bool isWalking = false;
     private bool isPlayerDetected = false;
@@ -22,9 +22,6 @@ public class FireElementalController : MonoBehaviour
             animator = GetComponent<Animator>();
         }
 
-        float posX = Random.Range(boundaryMin.x, boundaryMax.x);
-        float posZ = Random.Range(boundaryMin.z, boundaryMax.z);
-        transform.position = new Vector3(posX, transform.position.y, posZ);
         StartCoroutine(PlayRandomAnimation());
     }
 
@@ -94,8 +91,10 @@ public class FireElementalController : MonoBehaviour
 
         Vector3 position = transform.position;
 
+        // Check if the character is out of the boundaries
         if (position.x < boundaryMin.x || position.x > boundaryMax.x || position.z < boundaryMin.z || position.z > boundaryMax.z)
         {
+            // Determine the direction back towards the center of the boundary
             Vector3 directionToCenter = (new Vector3((boundaryMin.x + boundaryMax.x) / 2, position.y, (boundaryMin.z + boundaryMax.z) / 2) - position).normalized;
             Quaternion targetRotation = Quaternion.LookRotation(directionToCenter);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);

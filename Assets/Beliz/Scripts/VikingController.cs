@@ -21,10 +21,11 @@ public class VikingController : MonoBehaviour
         {
             animator = GetComponent<Animator>();
         }
-
+        /*
         float posX = Random.Range(boundaryMin.x, boundaryMax.x);
         float posZ = Random.Range(boundaryMin.z, boundaryMax.z);
         transform.position = new Vector3(posX, transform.position.y, posZ);
+        */
         StartCoroutine(PlayRandomAnimation());
     }
 
