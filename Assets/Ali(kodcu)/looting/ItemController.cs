@@ -5,10 +5,11 @@ public class ItemController : MonoBehaviour
     public Transform handTransform; // Karakterin eli
     public GameObject currentItem; // Karakterin þu anki itemi
     public GameObject groundItem; // Yerdeki item
+    public bool canSwapItems = false; // Item deðiþtirme izni
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && groundItem != null)
+        if (canSwapItems && Input.GetKeyDown(KeyCode.E) && groundItem != null)
         {
             SwapItems();
         }

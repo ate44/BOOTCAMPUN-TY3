@@ -2,16 +2,15 @@ using UnityEngine;
 
 public class ItemPickup : MonoBehaviour
 {
-    private ItemController playerController;
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            playerController = other.GetComponent<ItemController>();
+            ItemController playerController = other.GetComponent<ItemController>();
             if (playerController != null)
             {
                 playerController.groundItem = gameObject;
+                playerController.canSwapItems = true;
             }
         }
     }
@@ -20,9 +19,11 @@ public class ItemPickup : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            ItemController playerController = other.GetComponent<ItemController>();
             if (playerController != null)
             {
                 playerController.groundItem = null;
+                playerController.canSwapItems = false;
             }
         }
     }
