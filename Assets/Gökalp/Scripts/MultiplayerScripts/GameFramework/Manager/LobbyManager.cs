@@ -19,7 +19,7 @@ public class LobbyManager : Singleton<LobbyManager>
         return lobby?.LobbyCode;
     }
 
-    public async Task<bool> CreateLobby(int maxPlayers, bool isPrivate, Dictionary<string,string> data)
+    public async Task<bool> CreateLobby(int maxPlayers, bool isPrivate, Dictionary<string,string> data, Dictionary<string,string> lobbyData)
     {
         Dictionary<string, PlayerDataObject> playerData = SerializePlayerData(data);
 
@@ -27,6 +27,7 @@ public class LobbyManager : Singleton<LobbyManager>
 
         CreateLobbyOptions options = new CreateLobbyOptions()
         {
+            Data = SerializeLobbyData(lobbyData),
             IsPrivate = isPrivate,
             Player = player
         };
@@ -86,6 +87,19 @@ public class LobbyManager : Singleton<LobbyManager>
                 ));
         }
         return playerData;
+    }
+
+    private Dictionary<string, DataObject> SerializeLobbyData(Dictionary<string, string> lobbyData)
+    {
+        Dictionary<string, DataObject> _lobbyData = new Dictionary<string, DataObject>();
+        foreach (var (key, value) in lobbyData)
+        {
+            _lobbyData.Add(key, new DataObject(
+                visibility: DataObject.VisibilityOptions.Member,
+                value: value
+                ));
+        }
+        return _lobbyData;
     }
 
     public void OnApplicationQuit()
@@ -150,5 +164,27 @@ public class LobbyManager : Singleton<LobbyManager>
 
         return true;
 
+    }
+
+    public async Task<bool> UpdateLobbyData(Dictionary<string, string> lobbyData)
+    {
+        Dictionary<string, DataObject> _lobbyData = SerializeLobbyData(lobbyData);
+
+        UpdateLobbyOptions options = new UpdateLobbyOptions() { Data = _lobbyData };
+
+        try
+        {
+            lobby = await LobbyService.Instance.UpdateLobbyAsync(lobby.Id, options);
+
+        }catch(System.Exception) { return false; }
+
+        LobbyEvents.OnLobbyUpdated(lobby);
+
+        return true;
+    }
+
+    public string GetHostId()
+    {
+        return lobby.HostId;
     }
 }

@@ -13,6 +13,10 @@ public class GameLobbyManager : Singleton<GameLobbyManager>
 
     private LobbyPlayerData localLobbyPlayerData;
 
+    private LobbyData lobbyData;
+
+    public bool isHost => localLobbyPlayerData.Id == LobbyManager.Instance.GetHostId();
+
 
     private void OnEnable()
     {
@@ -31,20 +35,24 @@ public class GameLobbyManager : Singleton<GameLobbyManager>
 
     public async Task<bool> CreateLobby()
     {
-        LobbyPlayerData playerData = new LobbyPlayerData();
-        playerData.Initialize(AuthenticationService.Instance.PlayerId, "HostPlayer");
+        localLobbyPlayerData = new LobbyPlayerData();
 
-        bool succeeded = await LobbyManager.Instance.CreateLobby(4,true, playerData.Serialize());
+        localLobbyPlayerData.Initialize(AuthenticationService.Instance.PlayerId, "HostPlayer");
+
+        lobbyData = new LobbyData();
+        lobbyData.Initialize(0);
+
+        bool succeeded = await LobbyManager.Instance.CreateLobby(4,true, localLobbyPlayerData.Serialize(), lobbyData.Serialize());
 
         return succeeded;
     }
 
     public async Task<bool> JoinLobby(string code)
     {
-        LobbyPlayerData playerData = new LobbyPlayerData();
-        playerData.Initialize(AuthenticationService.Instance.PlayerId, "JoinPlayer");
+        localLobbyPlayerData = new LobbyPlayerData();
+        localLobbyPlayerData.Initialize(AuthenticationService.Instance.PlayerId, "JoinPlayer");
 
-        bool succeeded = await LobbyManager.Instance.JoinLobby(code, playerData.Serialize());
+        bool succeeded = await LobbyManager.Instance.JoinLobby(code, localLobbyPlayerData.Serialize());
         return succeeded;
     }
 
@@ -66,6 +74,9 @@ public class GameLobbyManager : Singleton<GameLobbyManager>
             lobbyPlayerDatas.Add(lobbyPlayerData);
         }
 
+        lobbyData = new LobbyData();
+        lobbyData.Initialize(lobby.Data);
+
         LobbyEventsGame.OnLobbyUpdated?.Invoke();
     }
 
@@ -78,5 +89,16 @@ public class GameLobbyManager : Singleton<GameLobbyManager>
     {
         localLobbyPlayerData.IsReady = true;
         return await LobbyManager.Instance.UpdatePlayerData(localLobbyPlayerData.Id, localLobbyPlayerData.Serialize());
+    }
+
+    public int GetMapIndex()
+    {
+        return lobbyData.MapIndex;
+    }
+
+    public async Task<bool> SetSelectedMap(int currentMapIndex)
+    {
+        lobbyData.MapIndex = currentMapIndex;
+        return await LobbyManager.Instance.UpdateLobbyData(lobbyData.Serialize());
     }
 }
