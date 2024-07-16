@@ -20,6 +20,8 @@ public class GameLobbyManager : Singleton<GameLobbyManager>
 
     private int maxNumberOfPlayers = 4;
 
+    private bool inGame = false;
+
 
     private void OnEnable()
     {
@@ -94,7 +96,7 @@ public class GameLobbyManager : Singleton<GameLobbyManager>
             LobbyEventsGame.OnLobbyReady?.Invoke();
         }
 
-        if(lobbyData.RelayJoinCode != default)
+        if(lobbyData.RelayJoinCode != default && !inGame)
         {
             await JoinRelayServer(lobbyData.RelayJoinCode);
             SceneManager.LoadSceneAsync(lobbyData.SceneName);
@@ -128,6 +130,8 @@ public class GameLobbyManager : Singleton<GameLobbyManager>
     {
         string relayJoinCode = await RelayManager.Instance.CreateRelay(maxNumberOfPlayers);
 
+        inGame = true; //host start butonuna týkladýðýnda haritaya geçen oyuncular, haritaya geldikten sonra kayboluyordu. Çözüm bu þekilde.
+
         lobbyData.RelayJoinCode = relayJoinCode;
 
         await LobbyManager.Instance.UpdateLobbyData(lobbyData.Serialize());
@@ -142,6 +146,8 @@ public class GameLobbyManager : Singleton<GameLobbyManager>
 
     private async Task<bool> JoinRelayServer(string relayJoinCode)
     {
+        inGame = true; //host start butonuna týkladýðýnda haritaya geçen oyuncular, haritaya geldikten sonra kayboluyordu. Çözüm bu þekilde.
+
         await RelayManager.Instance.JoinRelay(relayJoinCode);
 
         string allocationId = RelayManager.Instance.GetAllocationId();
