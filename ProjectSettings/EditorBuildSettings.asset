@@ -5,13 +5,31 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/AhmetMainMenu.unity
     guid: 0c1bd4a50902d3840aeacd13579ea19e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Ahmethowtoplay.unity
     guid: 0358928178cf8f64092245130834e3a2
+  - enabled: 0
+    path: Assets/Scenes/AhmetGameover.unity
+    guid: 30bb6d028079c6742a99e4d6200398e0
+  - enabled: 1
+    path: Assets/Scenes/Multiplayer Scenes/Init.unity
+    guid: 8ac3ffe875a0bfd4b961a387b16dd1b1
+  - enabled: 1
+    path: Assets/Scenes/Multiplayer Scenes/MenuScene.unity
+    guid: f754e7ef837533f4288e14bb981cc552
+  - enabled: 1
+    path: Assets/Scenes/Multiplayer Scenes/Loading.unity
+    guid: feb45c943cbc7ab428fb5825d25e1c99
+  - enabled: 1
+    path: Assets/Scenes/Multiplayer Scenes/Lobby.unity
+    guid: 2554a693469fd2c46a8628ca3f317179
+  - enabled: 1
+    path: Assets/Scenes/Multiplayer Scenes/TownScene.unity
+    guid: a34f2052bc1d4224a946d709be7abf5a
   m_configObjects: {}
