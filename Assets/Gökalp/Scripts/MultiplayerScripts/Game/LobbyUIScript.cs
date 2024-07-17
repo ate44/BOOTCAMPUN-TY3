@@ -31,6 +31,10 @@ public class LobbyUI : MonoBehaviour
             leftButton.gameObject.SetActive(false);
             rightButton.gameObject.SetActive(false);
         }
+        else
+        {
+            GameLobbyManager.Instance.SetSelectedMap(currentMapIndex, mapSelectionData.Maps[currentMapIndex].SceneName);
+        }
     }
 
     private void OnEnable()
