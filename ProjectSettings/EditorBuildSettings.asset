@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Multiplayer Scenes/TownScene.unity
     guid: a34f2052bc1d4224a946d709be7abf5a
+  - enabled: 1
+    path: "Assets/Scenes/G\xF6kalp.unity"
+    guid: 4b9f7449bbc11f24e86ce05e08bcacce
   m_configObjects: {}

@@ -1,14 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
 // MeleeController sýnýfý, yakýn dövüþ saldýrýlarýný kontrol eder
-public class MeleeController : MonoBehaviour
+public class MultiplayerMeleeController : NetworkBehaviour
 {
-    // Animator bileþenine referans
     Animator anim;
-
     public WeaponHandler weaponHandler;
     private BoxCollider weaponCollider;
 
@@ -32,10 +31,8 @@ public class MeleeController : MonoBehaviour
 
     public ParticleSystem swordSlashEffect;
 
-
     void Start()
     {
-        // Animator bileþenini al
         anim = GetComponentInChildren<Animator>();
         weaponCollider = (BoxCollider)weaponHandler.weapon.GetComponent<Collider>();
         hittableRigidHandler = GetComponent<HittableRigidHandler>();
@@ -44,15 +41,15 @@ public class MeleeController : MonoBehaviour
 
     void Update()
     {
-        // Sol fare tuþuna basýldýðýnda saldýrý tipi 1 olarak ayarla
+        if (!IsOwner) return;
+
         if (Input.GetMouseButtonDown(0)) // left click
         {
-            SetAttack(1);
+            SetAttackServerRpc(1);
         }
-        // Sað fare tuþuna basýldýðýnda saldýrý tipi 2 olarak ayarla
         else if (Input.GetMouseButtonDown(1)) // right click
         {
-            SetAttack(2);
+            SetAttackServerRpc(2);
         }
     }
 
@@ -64,26 +61,17 @@ public class MeleeController : MonoBehaviour
         }
     }
 
-    // Saldýrý ayarlarýný belirleyen metod
-    private void SetAttack(int attackType)
+    [ServerRpc]
+    private void SetAttackServerRpc(int attackType)
     {
-        // Animator'daki "CanAttack" bool parametresi true ise saldýrý baþlat
         if (anim.GetBool("CanAttack"))
         {
-            //attackId++;
-
-            // "Attack" tetikleyicisini ayarla
+            attackId++;
             anim.SetTrigger("Attack");
-            // Saldýrý tipini belirle
             anim.SetInteger("AttackType", attackType);
             hittableRigidHandler.ClearCollisionList();
 
-            //slash efekti buraya gelecek
-            CreateSwordSlash();
-        }
-        else
-        {
-            swordSlashEffect.Stop();
+            CreateSwordSlashClientRpc();
         }
     }
 
@@ -96,7 +84,7 @@ public class MeleeController : MonoBehaviour
         trailList.AddFirst(bo);
 
         if (trailList.Count > maxFrameBuffer)
-        { //topladýðýmýz frame sayýsýný sýnýrlýyoruz
+        {
             trailList.RemoveLast();
         }
         if (trailList.Count > 1)
@@ -190,7 +178,8 @@ public class MeleeController : MonoBehaviour
         }
     }
 
-    private void CreateSwordSlash()
+    [ClientRpc]
+    private void CreateSwordSlashClientRpc()
     {
         swordSlashEffect.Play();
     }
