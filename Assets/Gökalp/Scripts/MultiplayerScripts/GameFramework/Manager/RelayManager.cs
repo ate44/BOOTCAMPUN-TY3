@@ -1,6 +1,7 @@
 
 
-using System;
+
+using System.Linq;
 using System.Threading.Tasks;
 using Unity.Services.Relay;
 using Unity.Services.Relay.Models;
@@ -9,72 +10,85 @@ using Unity.Services.Relay.Models;
 public class RelayManager : Singleton<RelayManager>
 {
     private string _joinCode;
-    private RelayHostData data;
+    private RelayServerEndpoint conn;
+    private string _ip;
+    private int _port;
+    private byte[] _key;
+    private byte[] _connectionData;
+    private byte[] _hostConnectionData;
+    private byte[] _allocationIdBytes;
+    private System.Guid _allocationId;
+    
 
-    public struct RelayHostData
+    private bool _isHost = false;
+
+    public bool IsHost
     {
-        public string joinCode;
-        public string IPv4Address;
-        public ushort Port;
-        public Guid AllocationID;
-        public byte[] AllocationIDBytes;
-        public byte[] ConnectionData;
-        public byte[] Key;
+        get { return _isHost; }
     }
 
-    public string GetAllocationId()
+    internal string GetAllocationId()
     {
-        return data.AllocationID.ToString();
+        return _allocationId.ToString();
     }
 
-    public string GetConnectionData()
+    internal string GetConnectionData()
     {
-        return data.ConnectionData.ToString();
+        return _connectionData.ToString();
     }
 
     public async Task<string> CreateRelay(int maxConnection)
     {
         Allocation allocation = await RelayService.Instance.CreateAllocationAsync(maxConnection);
+        _joinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
 
-        data = new RelayHostData()
-        {
-            IPv4Address = allocation.RelayServer.IpV4,
-            Port = (ushort)allocation.RelayServer.Port,
-            AllocationID = allocation.AllocationId,
-            AllocationIDBytes = allocation.AllocationIdBytes,
-            ConnectionData = allocation.ConnectionData,
-            Key = allocation.Key,
-            joinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId)
-        };
+        RelayServerEndpoint endpoint = allocation.ServerEndpoints.First(conn => conn.ConnectionType == "dtls");
 
-        _joinCode = data.joinCode;
+        _ip = endpoint.Host;
+        _port = endpoint.Port;
+        _allocationId = allocation.AllocationId;
+        _allocationIdBytes = allocation.AllocationIdBytes;
+        _connectionData = allocation.ConnectionData;
+        _key = allocation.Key;
 
+        _isHost = true;
 
         return _joinCode;
-        
+
     }
 
     public async Task<bool> JoinRelay(string joinCode)
     {
         _joinCode = joinCode;
+
         JoinAllocation allocation = await RelayService.Instance.JoinAllocationAsync(joinCode);
 
-        data = new RelayHostData()
-        {
-            IPv4Address = allocation.RelayServer.IpV4,
-            Port = (ushort)allocation.RelayServer.Port,
-            AllocationID = allocation.AllocationId,
-            AllocationIDBytes = allocation.AllocationIdBytes,
-            ConnectionData = allocation.ConnectionData,
-            Key = allocation.Key,
+        RelayServerEndpoint endpoint = allocation.ServerEndpoints.First(conn => conn.ConnectionType == "dtls");
 
-        };
+        _ip = endpoint.Host;
+        _port = endpoint.Port;
+        _allocationId = allocation.AllocationId;
+        _allocationIdBytes = allocation.AllocationIdBytes;
+        _connectionData = allocation.ConnectionData;
+        _key = allocation.Key;
+        _hostConnectionData = allocation.HostConnectionData;
 
         return true;
+
+
     }
 
-    
+    public (byte[] AllocationIdBytes, byte[] Key, byte[] ConnectionData, string Ip, int Port) GetHostConnectionInfo()
+    {
+        return (_allocationIdBytes, _key, _connectionData, _ip, _port);
+    }
 
-    
+    public (byte[] AllocationIdBytes, byte[] Key, byte[] ConnectionData, byte[] HostConnectionData, string Ip, int Port) GetClientConnectionInfo()
+    {
+        return (_allocationIdBytes, _key, _connectionData, _hostConnectionData, _ip, _port);
+    }
+
+
+
 
 }
