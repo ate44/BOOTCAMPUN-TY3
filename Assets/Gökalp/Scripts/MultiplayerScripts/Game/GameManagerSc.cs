@@ -12,14 +12,14 @@ public class GameManagerSc : MonoBehaviour
         if (RelayManager.Instance.IsHost)
         {
             NetworkManager.Singleton.ConnectionApprovalCallback = ConnectionApproval;
-            (byte[] AllocationIdBytes, byte[] key, byte[] ConnectionData, string ip, ushort port) = RelayManager.Instance.GetHostConnectionInfo();
-            NetworkManager.Singleton.GetComponent<UnityTransport>().SetHostRelayData(ip, port, AllocationIdBytes, key, ConnectionData, true);
+            (byte[] AllocationIdBytes, byte[] key, byte[] ConnectionData, string ip ,int port) = RelayManager.Instance.GetHostConnectionInfo();
+            NetworkManager.Singleton.GetComponent<UnityTransport>().SetHostRelayData(ip, (ushort)port, AllocationIdBytes, key, ConnectionData, true);
             NetworkManager.Singleton.StartHost();
         }
         else
         {
-            (byte[] AllocationIdBytes, byte[] key, byte[] ConnectionData, byte[] HostConnectionData,  string ip, ushort port) = RelayManager.Instance.GetClientConnectionInfo();
-            NetworkManager.Singleton.GetComponent<UnityTransport>().SetClientRelayData(ip, port, AllocationIdBytes, key, ConnectionData, HostConnectionData,true);
+            (byte[] AllocationIdBytes, byte[] key, byte[] ConnectionData, byte[] HostConnectionData,  string ip, int port) = RelayManager.Instance.GetClientConnectionInfo();
+            NetworkManager.Singleton.GetComponent<UnityTransport>().SetClientRelayData(ip, (ushort)port, AllocationIdBytes, key, ConnectionData, HostConnectionData,true);
             NetworkManager.Singleton.StartClient();
         }
     }

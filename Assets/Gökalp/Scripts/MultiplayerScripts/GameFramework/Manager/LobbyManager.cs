@@ -70,7 +70,7 @@ public class LobbyManager : Singleton<LobbyManager>
             if(newLobby.LastUpdated > lobby.LastUpdated)
             {
                 lobby = newLobby;
-                LobbyEvents.OnLobbyUpdated?.Invoke(newLobby);
+                LobbyEvents.OnLobbyUpdated?.Invoke(lobby); //
             }
             yield return new WaitForSecondsRealtime(waitTimeSeconds);
         }
