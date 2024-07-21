@@ -35,7 +35,7 @@ Ortaçağın korku ve dehşet dolu dünyasına yolculuk yapın! Bu 3D battlegrou
 - **Puan tamamlama mantığı**: Proje boyunca tamamlanması gereken backlog puanı 300'dür. İlk Sprint için bitirilmesi istenilen puan sayısı 80 olarak belirlenmiştir ve hedefe ulaşılmıştır.
 - **Daily Scrum**: Whatsapp ve discord üzerinden görüşmeler sağlanmıştır.
   
-Toplantı ve Whatsapp ScreenShotları <blockquote class="imgur-embed-pub" lang="en" data-id="a/tT5yDdA"  ><a href="https://imgur.com/a/xp1fQKD">Whatsapp</a></blockquote>
+Toplantı ve Whatsapp ScreenShotları <blockquote class="imgur-embed-pub" lang="en" data-id="a/tT5yDdA"  ><a href="https://imgur.com/a/xp1fQKD">Whatsapp ve Discord</a></blockquote>
 
  **Sprint 1 board update**: Sprint Board Screenshot: 
 <blockquote class="imgur-embed-pub" lang="en" data-id="a/tT5yDdA"  ><a href="https://imgur.com/a/UBvPNca">Trello</a></blockquote>
@@ -53,3 +53,27 @@ Toplantı ve Whatsapp ScreenShotları <blockquote class="imgur-embed-pub" lang="
 - Karakterin hareket animasyonları ve mekanikleri başarıyla eklendi. Efektler karaktere eklenmeye başlandı.
 - UI ekranlarının çoğu tasarlandı. Multiplayer seçeneğinin eklenmesiyle beraber menü kısmı için değişime gidilecek.
 - Map üzerinde değişiklikler eklendi.
+
+# **SPRINT 2**
+- Sprint içi puan değerlendirmesi 90 olarak belirlenmiştir.
+- **Puan tamamlama mantığı**: İkinci sprint için bitirilmesi istenilen puan sayısı 90 olarak belirlenmişti. 2 puan ile hedef kaçırılarak 88 puan ile kapatıldı.
+- **Daily Scrum**: Whatsapp ve discord üzerinden görüşmelere devam edildi.
+
+Toplantı ve Whatsapp ScreenShotları: <blockquote class="imgur-embed-pub" lang="en" data-id="a/tT5yDdA"  ><a href="https://imgur.com/a/DOHpQyh">Whatsapp ve Discord</a></blockquote>
+
+ **Sprint 2 board update**: Sprint Board Screenshot: 
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/tT5yDdA"  ><a href="https://imgur.com/a/0CHeaK1">Trello</a></blockquote>
+
+ **Ürün Durumu**: Ekran Görüntüleri:
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/tT5yDdA"  ><a href="https://imgur.com/a/XCtVTvY">Unity</a></blockquote>
+
+
+  **Sprint Review**:
+- Oyuna eklemekten vazgeçtiğimiz özellikler oldu. Onların yerine yeni eklemelerimiz oldu. (örneğin loot mekanikleri azaltıldı, yerine kış haritası eklendi.). Bunlar dışında hedeflenen görevlerin 1 dışında hepsi sprint içinde başarıyla yapıldı.
+- Sprint Review katılımcıları: Ahmet Tuna Eken, Belgin Köklü, Ali Gökalp Karakuş, Beliz Yazıcı, Ali Rıza Ababey.
+
+**Sprint Retrospective:**
+- Gameanalytics için ekleme işemleri 3. sprint'e bırakıldı.
+- Multiplayer sistemi için eklemeler bitmedi. 3. sprint'e esnedi.
+- Kış haritası 2. haritamız olacak. Efektler ve sesler eklenerek güzelleştirmeler yapılmasına karar verildi.
+- Script yazan herkesin multiplayer entegresi için scriptlerini güncellemesi üzerine karar alındı. Sahnelerin de bu yönde güncellenmesine karar verildi.
