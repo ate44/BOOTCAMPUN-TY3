@@ -33,7 +33,7 @@ public class HittableRigidHandler : MonoBehaviour
         {
             hittableRigidsPool[i] = Instantiate(hrModel);
             hittableRigidsPool[i].handler = this;
-            hittableRigidsPool[i].gameObject.SetActive(false); //ihtiyaç olduðunda aktive olacak
+            hittableRigidsPool[i].gameObject.SetActive(false); //ihtiyaï¿½ olduï¿½unda aktive olacak
         }
     }
 
@@ -51,7 +51,15 @@ public class HittableRigidHandler : MonoBehaviour
                 bloodEffect.transform.position = position;
                 bloodEffect.transform.rotation = rotation;
                 bloodEffect.Play();
-
+                
+                FireElementalController enemy = GetComponent<FireElementalController>();
+                
+                if (enemy != null)
+                {
+                    Debug.Log("Enemy detected");
+                    enemy.TakeDamage();
+                }
+                
                 hittableRigid.gameObject.SetActive(false);
 
                 break;

@@ -11,10 +11,12 @@ public class FireElementalController : MonoBehaviour
     public string attackParameter = "attack";
     public Vector3 boundaryMin;
     public Vector3 boundaryMax;
+    public int maxHealth = 2;
 
     private bool isWalking = false;
     private bool isPlayerDetected = false;
     private Transform playerTransform;
+    private int currentHealth;
 
     void Start()
     {
@@ -23,6 +25,7 @@ public class FireElementalController : MonoBehaviour
             animator = GetComponent<Animator>();
         }
 
+        currentHealth = maxHealth;
         StartCoroutine(PlayRandomAnimation());
     }
 
@@ -59,11 +62,8 @@ public class FireElementalController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Trigger Enter: " + other.name);
-
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Player detected: " + other.name);
             isPlayerDetected = true;
             playerTransform = other.transform;
             StartCoroutine(AttackPlayer());
@@ -72,11 +72,8 @@ public class FireElementalController : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log("Trigger Exit: " + other.name);
-
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Player lost: " + other.name);
             isPlayerDetected = false;
             animator.SetBool(attackParameter, false);
             animator.SetBool(isWalkingParameter, false);
@@ -121,5 +118,21 @@ public class FireElementalController : MonoBehaviour
 
             transform.Translate(Vector3.forward * speed * Time.deltaTime);
         }
+    }
+
+    public void TakeDamage()
+    {
+        currentHealth--;
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        animator.SetBool("damage",true);
+        Destroy(gameObject);
+        
     }
 }
