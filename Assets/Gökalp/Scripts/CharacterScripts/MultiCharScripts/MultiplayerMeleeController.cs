@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Globalization;
 using Unity.Netcode;
 using UnityEngine;
 
 public class MultiplayerMeleeController : NetworkBehaviour
 {
+    // Animator bileþenine referans
     Animator anim;
+
     public WeaponHandler weaponHandler;
     private BoxCollider weaponCollider;
 
@@ -32,6 +33,7 @@ public class MultiplayerMeleeController : NetworkBehaviour
 
     void Start()
     {
+        // Animator bileþenini al
         anim = GetComponentInChildren<Animator>();
         weaponCollider = (BoxCollider)weaponHandler.weapon.GetComponent<Collider>();
         hittableRigidHandler = GetComponent<HittableRigidHandler>();
@@ -40,15 +42,17 @@ public class MultiplayerMeleeController : NetworkBehaviour
 
     void Update()
     {
-        if (!IsOwner) return;
+        if (!IsLocalPlayer) return;
 
+        // Sol fare tuþuna basýldýðýnda saldýrý tipi 1 olarak ayarla
         if (Input.GetMouseButtonDown(0)) // left click
         {
-            SetAttackServerRpc(1);
+            SetAttack(1);
         }
+        // Sað fare tuþuna basýldýðýnda saldýrý tipi 2 olarak ayarla
         else if (Input.GetMouseButtonDown(1)) // right click
         {
-            SetAttackServerRpc(2);
+            SetAttack(2);
         }
     }
 
@@ -60,17 +64,26 @@ public class MultiplayerMeleeController : NetworkBehaviour
         }
     }
 
-    [ServerRpc]
-    private void SetAttackServerRpc(int attackType)
+    // Saldýrý ayarlarýný belirleyen metod
+    private void SetAttack(int attackType)
     {
+        // Animator'daki "CanAttack" bool parametresi true ise saldýrý baþlat
         if (anim.GetBool("CanAttack"))
         {
-            attackId++;
+            //attackId++;
+
+            // "Attack" tetikleyicisini ayarla
             anim.SetTrigger("Attack");
+            // Saldýrý tipini belirle
             anim.SetInteger("AttackType", attackType);
             hittableRigidHandler.ClearCollisionList();
 
-            CreateSwordSlashClientRpc();
+            //slash efekti buraya gelecek
+            CreateSwordSlashServerRpc();
+        }
+        else
+        {
+            swordSlashEffect.Stop();
         }
     }
 
@@ -83,7 +96,7 @@ public class MultiplayerMeleeController : NetworkBehaviour
         trailList.AddFirst(bo);
 
         if (trailList.Count > maxFrameBuffer)
-        {
+        { //topladýðýmýz frame sayýsýný sýnýrlýyoruz
             trailList.RemoveLast();
         }
         if (trailList.Count > 1)
@@ -175,6 +188,12 @@ public class MultiplayerMeleeController : NetworkBehaviour
                 Gizmos.DrawWireCube(Vector3.zero, obj.size);
             }
         }
+    }
+
+    [ServerRpc]
+    private void CreateSwordSlashServerRpc()
+    {
+        CreateSwordSlashClientRpc();
     }
 
     [ClientRpc]
