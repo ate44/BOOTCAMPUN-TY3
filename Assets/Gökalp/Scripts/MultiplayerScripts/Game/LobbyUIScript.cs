@@ -22,7 +22,7 @@ public class LobbyUI : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    private async void Start()
     {
         lobbyCodeText.text = $"Lobby code: {GameLobbyManager.Instance.GetLobbyCode()}";
 
@@ -33,7 +33,7 @@ public class LobbyUI : MonoBehaviour
         }
         else
         {
-            GameLobbyManager.Instance.SetSelectedMap(currentMapIndex, mapSelectionData.Maps[currentMapIndex].SceneName);
+            await GameLobbyManager.Instance.SetSelectedMap(currentMapIndex, mapSelectionData.Maps[currentMapIndex].SceneName);
         }
     }
 

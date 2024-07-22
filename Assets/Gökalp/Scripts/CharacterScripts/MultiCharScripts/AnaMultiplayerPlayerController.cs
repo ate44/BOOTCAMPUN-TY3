@@ -1,43 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
-using System.Globalization;
 using Unity.Netcode;
 using UnityEngine;
 
 public class AnaMultiplayerPlayerController : NetworkBehaviour
 {
-    // Oyuncu için referans
     public Transform player;
-
-    // Ana kamera referansý
     private Camera mainCamera;
-
-    // Oyuncunun animasyonuna referans
     private Animator anim;
-
-    // Hareket yönünü kontrol eden vektör
     private Vector3 direction;
-
-    // Silahýn kuþanýlýp kuþanýlmadýðýný belirten bayrak
     private bool isWeaponEquipped = false;
-
-    // Hedef kilitlenme için referans (düþman)
     public Transform targetLock;
-
-    // Hedef kilitlenip kilitlenmediðini belirten bayrak
     public bool isTargetLocked = false;
-
-    // Dönme hýzý için aralýk belirleyen parametre
-    [Range(20f, 80f)]
-    public float rotationSpeed = 20f;
-    public float moveSpeed = 1f; // animasyonlar arasýndaki geçiþi smooth yapmak için bir bekleme süresi
-
+    [Range(20f, 80f)] public float rotationSpeed = 20f;
+    public float moveSpeed = 1f;
     private bool canRotate = true;
-
     public ParticleSystem dustEffect;
-
     [SerializeField] private Transform canTransform;
+
+    private NetworkVariable<Vector3> networkedPosition = new NetworkVariable<Vector3>();
+    private NetworkVariable<Quaternion> networkedRotation = new NetworkVariable<Quaternion>();
+
+    [SerializeField] private NetworkMovementComponent networkMovementComponent;
 
     public override void OnNetworkSpawn()
     {
@@ -53,87 +38,74 @@ public class AnaMultiplayerPlayerController : NetworkBehaviour
         }
     }
 
-    // Baþlangýçta çalýþtýrýlan metod
     private void Start()
     {
-
-        // Fare imlecini kilitle
         Cursor.lockState = CursorLockMode.Locked;
-        // Ana kamerayý al
         mainCamera = Camera.main;
-
-
-
-        // Animator bileþenini al
         anim = GetComponentInChildren<Animator>();
     }
 
-    // Her çerçevede çalýþtýrýlan metod
     private void Update()
     {
         if (!IsOwner) return;
 
-        // Yönü girdi eksenlerinden hesapla
+        // Calculate direction from input axes
         direction = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        // Girdi verilerini iþle
+        // Process input data
         HandleInputData();
 
-        // Hedef kilitlenmiþse hedefe göre, deðilse kameraya göre dön
+        float lookX = Input.GetAxis("Mouse X");
+        float lookY = Input.GetAxis("Mouse Y");
+
+        // Rotate towards the target or camera based on lock state
         if (isTargetLocked)
             HandleTargetLockedRotation();
         else
             HandleRotation();
 
+        // Process local player movement and send updates to the server
+        if (IsClient && IsLocalPlayer)
+        {
+            networkMovementComponent.ProcessLocalPlayerMovement(direction, lookX, lookY);
+            networkedPosition.Value = transform.position;
+            networkedRotation.Value = transform.rotation;
+        }
     }
 
-    // Oyuncunun dönmesini kontrol eden metod
     private void HandleRotation()
     {
         if (!canRotate) return;
-
-        // Kameranýn dönüþ yönünü hesapla
         Vector3 rotationOffset = mainCamera.transform.TransformDirection(direction);
         rotationOffset.y = 0;
-        // Oyuncunun ileri yönünü yavaþça kameranýn yönüne doðru deðiþtir
-        player.forward += Vector3.Lerp(player.forward, rotationOffset, Time.deltaTime * rotationSpeed);
+        player.forward = Vector3.Lerp(player.forward, rotationOffset, Time.deltaTime * rotationSpeed);
     }
 
-    // Hedefe kilitli durumda dönmeyi kontrol eden metod
     private void HandleTargetLockedRotation()
     {
-        // Hedefin dönüþ yönünü hesapla
         Vector3 rotationOffset = targetLock.transform.position - player.position;
         rotationOffset.y = 0;
-
         float lookDirection = Vector3.SignedAngle(player.forward, rotationOffset, Vector3.up);
         anim.SetFloat("LookDirection", lookDirection);
 
         if (anim.GetFloat("Speed") > .1f)
         {
-            // Oyuncunun ileri yönünü yavaþça hedefin yönüne doðru deðiþtir
-            player.forward += Vector3.Lerp(player.forward, rotationOffset, Time.deltaTime * rotationSpeed);
+            player.forward = Vector3.Lerp(player.forward, rotationOffset, Time.deltaTime * rotationSpeed);
         }
     }
 
-    // Girdi verilerini iþleyen metod
     private void HandleInputData()
     {
-        // Animatördeki parametreleri girdi verilerine göre ayarla
         anim.SetFloat("Speed", Vector3.ClampMagnitude(direction, 1).magnitude, moveSpeed, Time.deltaTime);
         anim.SetFloat("Horizontal", direction.x, moveSpeed, Time.deltaTime);
         anim.SetFloat("Vertical", direction.z, moveSpeed, Time.deltaTime);
 
-        // Animatörden silahýn kuþanýlýp kuþanýlmadýðýný kontrol et
         isWeaponEquipped = anim.GetBool("IsWeaponEquipped");
-        // Animatörden hedefin kilitlenip kilitlenmediðini kontrol et
         isTargetLocked = anim.GetBool("IsTargetLocked");
-
         canRotate = anim.GetBool("CanRotate");
 
         float lookDirection = Vector3.SignedAngle(player.forward, Vector3.ProjectOnPlane(mainCamera.transform.forward, Vector3.up), Vector3.up);
         anim.SetFloat("LookDirection", lookDirection);
 
-        // Toz efektini kontrol et
         if (anim.GetFloat("Speed") > 0.1f)
         {
             CreateDust();
@@ -143,20 +115,17 @@ public class AnaMultiplayerPlayerController : NetworkBehaviour
             dustEffect.Stop();
         }
 
-        // Silah kuþanýlmýþsa ve boþluk tuþuna basýlmýþsa hedef kilidini deðiþtir
         if (isWeaponEquipped && Input.GetKeyDown(KeyCode.Space))
         {
             anim.SetBool("IsTargetLocked", !isTargetLocked);
             isTargetLocked = !isTargetLocked;
         }
-        // F tuþuna basýlmýþsa ve oyuncu saldýrmýyorsa silah kuþanma durumunu deðiþtir
         else if (Input.GetKeyDown(KeyCode.F) && !anim.GetBool("IsAttacking"))
         {
             anim.SetBool("IsWeaponEquipped", !isWeaponEquipped);
             isWeaponEquipped = !isWeaponEquipped;
 
-            // Silah kuþanmamýþsa hedef kilidini kapat
-            if (isWeaponEquipped == false)
+            if (!isWeaponEquipped)
             {
                 anim.SetBool("IsTargetLocked", false);
                 isTargetLocked = false;
@@ -168,6 +137,4 @@ public class AnaMultiplayerPlayerController : NetworkBehaviour
     {
         dustEffect.Play();
     }
-    
-
 }
