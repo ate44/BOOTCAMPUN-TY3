@@ -9,11 +9,15 @@ public class VikingController : MonoBehaviour
     public float maxWaitTime = 5.0f;
     public float speed = 3.0f;
     public string attackParameter = "attack";
-    public Vector3 boundaryMin; 
-    public Vector3 boundaryMax; 
+    public Vector3 boundaryMin;
+    public Vector3 boundaryMax;
+    public int maxHealth = 2;
 
     private bool isWalking = false;
     private bool isPlayerDetected = false;
+    private Transform playerTransform;
+    private int currentHealth;
+
 
     void Start()
     {
@@ -21,11 +25,8 @@ public class VikingController : MonoBehaviour
         {
             animator = GetComponent<Animator>();
         }
-        /*
-        float posX = Random.Range(boundaryMin.x, boundaryMax.x);
-        float posZ = Random.Range(boundaryMin.z, boundaryMax.z);
-        transform.position = new Vector3(posX, transform.position.y, posZ);
-        */
+
+        currentHealth = maxHealth;
         StartCoroutine(PlayRandomAnimation());
     }
 
@@ -34,6 +35,10 @@ public class VikingController : MonoBehaviour
         if (isWalking && !isPlayerDetected)
         {
             MoveAndCheckBoundaries();
+        }
+        else if (isPlayerDetected)
+        {
+            FollowPlayer();
         }
     }
 
@@ -61,6 +66,7 @@ public class VikingController : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerDetected = true;
+            playerTransform = other.transform;
             StartCoroutine(AttackPlayer());
         }
     }
@@ -102,4 +108,45 @@ public class VikingController : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
         }
     }
+
+    private void FollowPlayer()
+    {
+        if (playerTransform != null)
+        {
+            Vector3 directionToPlayer = (playerTransform.position - transform.position).normalized;
+            Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
+
+            transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        }
+    }
+
+    public void TakeDamage()
+    {
+        currentHealth--;
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        Debug.Log("�LD�");
+        
+
+        StartCoroutine(DestroyingObjects());
+        
+    }
+
+    IEnumerator DestroyingObjects()
+    {
+        animator.SetBool("dead", true);
+
+        yield return new WaitForSeconds(0.2f);
+
+        Destroy(gameObject);
+
+    }
+
 }
