@@ -18,6 +18,7 @@ public class FireElementalController : MonoBehaviour
     private Transform playerTransform;
     private int currentHealth;
 
+
     void Start()
     {
         if (animator == null)
@@ -131,8 +132,21 @@ public class FireElementalController : MonoBehaviour
 
     void Die()
     {
-        animator.SetBool("damage",true);
-        Destroy(gameObject);
+        Debug.Log("ÖLDÜ");
+        
+
+        StartCoroutine(DestroyingObjects());
         
     }
+
+    IEnumerator DestroyingObjects()
+    {
+        animator.SetBool("damage", true);
+
+        yield return new WaitForSeconds(0.2f);
+
+        Destroy(gameObject);
+
+    }
+
 }

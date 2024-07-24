@@ -43,6 +43,7 @@ public class HittableRigidHandler : MonoBehaviour
         {
             if (!hittableRigid.isActiveAndEnabled)
             {
+
                 hittableRigid.gameObject.SetActive(true);
                 hittableRigid.transform.position = position;
                 hittableRigid.transform.rotation = rotation;
