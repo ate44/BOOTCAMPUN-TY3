@@ -132,7 +132,7 @@ public class FireElementalController : MonoBehaviour
 
     void Die()
     {
-        Debug.Log("ÖLDÜ");
+        Debug.Log("ï¿½LDï¿½");
         
 
         StartCoroutine(DestroyingObjects());
@@ -143,10 +143,9 @@ public class FireElementalController : MonoBehaviour
     {
         animator.SetBool("damage", true);
 
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(2.0f);
 
         Destroy(gameObject);
-
     }
 
 }

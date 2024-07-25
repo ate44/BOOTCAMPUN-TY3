@@ -132,7 +132,7 @@ public class GoblinController : MonoBehaviour
 
     void Die()
     {
-        Debug.Log("�LD�");
+        Debug.Log("Dead");
         
 
         StartCoroutine(DestroyingObjects());
@@ -143,10 +143,9 @@ public class GoblinController : MonoBehaviour
     {
         animator.SetBool("dead", true);
 
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(2.0f);
 
         Destroy(gameObject);
-
     }
 
 }

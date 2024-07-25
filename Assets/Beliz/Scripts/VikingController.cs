@@ -143,10 +143,9 @@ public class VikingController : MonoBehaviour
     {
         animator.SetBool("dead", true);
 
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(2.0f);
 
         Destroy(gameObject);
-
     }
 
 }
