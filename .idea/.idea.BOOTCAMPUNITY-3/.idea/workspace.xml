@@ -6,12 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0bfb88c0-0c1b-45b1-8023-9e19f3c361aa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BOOTCAMPUNITY-3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BOOTCAMPUNITY-3/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Scripts/EarthElementalController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Beliz/Scripts/EarthElementalController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Scripts/FireElementalController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Beliz/Scripts/FireElementalController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Scripts/GoblinController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Beliz/Scripts/GoblinController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Scripts/TrollController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Beliz/Scripts/TrollController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Beliz/Scripts/VikingController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Beliz/Scripts/VikingController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Scripts/WarriorController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Beliz/Scripts/WarriorController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +118,7 @@
       <workItem from="1721394081775" duration="5804000" />
       <workItem from="1721476804811" duration="155000" />
       <workItem from="1721831643245" duration="5693000" />
-      <workItem from="1721909091908" duration="1912000" />
+      <workItem from="1721909091908" duration="2500000" />
     </task>
     <servers />
   </component>

@@ -143,7 +143,7 @@ public class WarriorController : MonoBehaviour
     {
         animator.SetBool("dead", true);
 
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(3.9f);
 
         Destroy(gameObject);
     }
