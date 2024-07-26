@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0bfb88c0-0c1b-45b1-8023-9e19f3c361aa" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.BOOTCAMPUNITY-3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BOOTCAMPUNITY-3/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Scripts/EarthChSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Beliz/Scripts/EarthChSpawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Scripts/FireChSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Beliz/Scripts/FireChSpawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Scripts/GoblinSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Beliz/Scripts/GoblinSpawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Scripts/HumanSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Beliz/Scripts/HumanSpawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Belgin.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Belgin.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Beliz.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Beliz.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PolygonNature/Shaders/LWRP.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PolygonNature/URP_Extract_Me.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +120,7 @@
       <workItem from="1721476804811" duration="155000" />
       <workItem from="1721831643245" duration="5693000" />
       <workItem from="1721909091908" duration="2500000" />
-      <workItem from="1722022702137" duration="2818000" />
+      <workItem from="1722022702137" duration="3418000" />
     </task>
     <servers />
   </component>
