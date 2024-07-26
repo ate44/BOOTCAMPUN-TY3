@@ -1579,7 +1579,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5113764329516853857}
-  - component: {fileID: 5058808247015465069}
   - component: {fileID: 8476081656147000853}
   - component: {fileID: 5924640905004276935}
   - component: {fileID: 3017837000513665532}
@@ -1610,26 +1609,6 @@ Transform:
   - {fileID: 8484435925097599996}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5058808247015465069
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6795866533977572088}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3578032986
-  AlwaysReplicateAsRoot: 0
-  SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
-  SceneMigrationSynchronization: 1
-  SpawnWithObservers: 1
-  DontDestroyWithOwner: 0
-  AutoObjectParentSync: 1
 --- !u!114 &8476081656147000853
 MonoBehaviour:
   m_ObjectHideFlags: 0
