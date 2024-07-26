@@ -305,15 +305,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400144, guid: c8dd3d85d32c3f240a47d18e1f4cb61a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 93.78
+      value: 291.1
       objectReference: {fileID: 0}
     - target: {fileID: 400144, guid: c8dd3d85d32c3f240a47d18e1f4cb61a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 2.1
       objectReference: {fileID: 0}
     - target: {fileID: 400144, guid: c8dd3d85d32c3f240a47d18e1f4cb61a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 26.8
+      value: 23.8
       objectReference: {fileID: 0}
     - target: {fileID: 400144, guid: c8dd3d85d32c3f240a47d18e1f4cb61a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -382,6 +382,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100144, guid: c8dd3d85d32c3f240a47d18e1f4cb61a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1603415239859209398}
+    - targetCorrespondingSourceObject: {fileID: 100144, guid: c8dd3d85d32c3f240a47d18e1f4cb61a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4647241917658682687}
   m_SourcePrefab: {fileID: 100100000, guid: c8dd3d85d32c3f240a47d18e1f4cb61a, type: 3}
 --- !u!95 &9097988159261606652 stripped
 Animator:
@@ -416,8 +419,8 @@ MonoBehaviour:
   maxWaitTime: 5
   speed: 3
   attackParameter: attack01
-  boundaryMin: {x: 84, y: 0, z: -15}
-  boundaryMax: {x: 157, y: 0, z: 55}
+  boundaryMin: {x: 286, y: 0, z: -35}
+  boundaryMax: {x: 343, y: 0, z: 53}
   maxHealth: 2
 --- !u!65 &5668684091176511339
 BoxCollider:
@@ -480,3 +483,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bloodEffect: {fileID: 7274334516797049360}
+--- !u!136 &4647241917658682687
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9097988159268909228}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.286187
+  m_Height: 17.715448
+  m_Direction: 1
+  m_Center: {x: 0, y: 6.332241, z: 0.048099883}

@@ -147,6 +147,7 @@ GameObject:
   - component: {fileID: 5471858069465441048}
   - component: {fileID: 5308421996909956697}
   - component: {fileID: 7486378215579932117}
+  - component: {fileID: 4760677466946915029}
   m_Layer: 7
   m_Name: FireElemental
   m_TagString: Enemy
@@ -162,7 +163,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 752807325473165788}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.9966403, z: -0, w: -0.08190301}
+  m_LocalRotation: {x: 0, y: 0.99664026, z: -0, w: -0.08190365}
   m_LocalPosition: {x: 0.97707367, y: -1.1519117, z: 0.5040016}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -231,8 +232,8 @@ MonoBehaviour:
   maxWaitTime: 5
   speed: 0.15
   attackParameter: attack
-  boundaryMin: {x: 0, y: 0, z: -19}
-  boundaryMax: {x: 75, y: 0, z: 55}
+  boundaryMin: {x: 325, y: 2, z: -210}
+  boundaryMax: {x: 364, y: 2, z: -144}
   maxHealth: 10
 --- !u!54 &5308421996909956697
 Rigidbody:
@@ -274,6 +275,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bloodEffect: {fileID: 3691212633544632311}
+--- !u!136 &4760677466946915029
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 752807325473165788}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.3344599
+  m_Height: 2.649701
+  m_Direction: 1
+  m_Center: {x: -3.067642e-11, y: 0.82485056, z: 0.005755931}
 --- !u!1 &757696382514798928
 GameObject:
   m_ObjectHideFlags: 0
@@ -5938,7 +5962,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9eef72d48b46b0a4ea079f5cd425a413, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: -0.018
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9eef72d48b46b0a4ea079f5cd425a413, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5946,7 +5970,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9eef72d48b46b0a4ea079f5cd425a413, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.11
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9eef72d48b46b0a4ea079f5cd425a413, type: 3}
       propertyPath: m_LocalRotation.w

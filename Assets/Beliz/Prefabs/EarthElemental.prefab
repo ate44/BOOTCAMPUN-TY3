@@ -1208,6 +1208,7 @@ GameObject:
   - component: {fileID: 8027970207256601075}
   - component: {fileID: 4853174155026386925}
   - component: {fileID: 6924399574650253360}
+  - component: {fileID: 724444801872076657}
   m_Layer: 7
   m_Name: EarthElemental
   m_TagString: Enemy
@@ -1271,8 +1272,8 @@ MonoBehaviour:
   maxWaitTime: 5
   speed: 3
   attackParameter: attack
-  boundaryMin: {x: 132, y: 0, z: 64}
-  boundaryMax: {x: 204, y: 0, z: 136}
+  boundaryMin: {x: 288, y: 0, z: 44}
+  boundaryMax: {x: 238, y: 0, z: 178}
   maxHealth: 2
 --- !u!65 &8027970207256601075
 BoxCollider:
@@ -1293,8 +1294,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 2.695411, z: 1}
-  m_Center: {x: 0, y: 0.8477051, z: 0}
+  m_Size: {x: 1.1238556, y: 2.6954112, z: 1.3120575}
+  m_Center: {x: 0.061927795, y: 0.8477051, z: 0.05912018}
 --- !u!114 &4853174155026386925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1335,6 +1336,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!136 &724444801872076657
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6229606176503881898}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.29815674
+  m_Height: 2.4931736
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.7465868, z: -0.025131226}
 --- !u!1 &6353331385568703481
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,25 +4,26 @@ using UnityEngine;
 
 public class TrollSpawner : MonoBehaviour
 {
-    public GameObject characterPrefab; 
-    public Vector3 boundaryMin; 
-    public Vector3 boundaryMax; 
-    
-    void Start(){
-        SpawnCharacter();
-    }
-    
-    void SpawnCharacter()
-    {
-        int noOfCharacter = Random.Range(0, 5);
-        for (int i = 0; i < noOfCharacter; i++)
-        {
-            float randomX = Random.Range(boundaryMin.x, boundaryMax.x);
-            float randomZ = Random.Range(boundaryMin.z, boundaryMax.z);
-            Vector3 spawnPosition = new Vector3(randomX, transform.position.y, randomZ);
-                
-            Instantiate(characterPrefab, spawnPosition, Quaternion.identity);
-        }
-       
-    }
+   public List<Transform> spawnPoints = new List<Transform>();
+       [SerializeField] private GameObject troll;
+   
+   
+       private void Start()
+       {
+           SpawnCharactersAtAllPoints();
+       }
+   
+       void SpawnCharactersAtAllPoints()
+       {
+           if (spawnPoints.Count == 0)
+           {
+               Debug.LogWarning("No spawn points available.");
+               return;
+           }
+   
+           foreach (Transform spawnPoint in spawnPoints)
+           {
+               Instantiate(troll, spawnPoint.position, Quaternion.identity);
+           }
+       }
 }

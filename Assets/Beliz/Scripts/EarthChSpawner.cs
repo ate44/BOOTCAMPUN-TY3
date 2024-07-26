@@ -14,14 +14,12 @@ public class EarthChSpawner : MonoBehaviour
 
     void SpawnCharactersAtAllPoints()
     {
-        // Check if there are any spawn points available
         if (spawnPoints.Count == 0)
         {
             Debug.LogWarning("No spawn points available.");
             return;
         }
 
-        // Loop through each spawn point and instantiate a fire element
         foreach (Transform spawnPoint in spawnPoints)
         {
             Instantiate(earthElement, spawnPoint.position, Quaternion.identity);

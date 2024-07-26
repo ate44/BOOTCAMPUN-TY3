@@ -1223,7 +1223,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4962479575544936176
 Transform:
   m_ObjectHideFlags: 0
@@ -1232,13 +1232,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4188789450317575590}
   serializedVersion: 2
-  m_LocalRotation: {x: -1, y: 0.000000049010776, z: 0.000000040978183, w: 0.00000005963306}
-  m_LocalPosition: {x: -0.80309564, y: 0.07064346, z: 0.12579936}
+  m_LocalRotation: {x: 0.6532815, y: 0.27059805, z: -0.27059805, w: 0.6532815}
+  m_LocalPosition: {x: 0.095, y: 0.04, z: -0.381}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7227617338390355032}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 45, z: 0}
 --- !u!33 &569114889200421798
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1584,6 +1584,7 @@ GameObject:
   - component: {fileID: 3776226160084066301}
   - component: {fileID: 3260853933659862534}
   - component: {fileID: 3898774288560979270}
+  - component: {fileID: 5700500126614775997}
   m_Layer: 7
   m_Name: Character_Viking_Black
   m_TagString: Enemy
@@ -1652,8 +1653,8 @@ MonoBehaviour:
   maxWaitTime: 5
   speed: 3
   attackParameter: attack
-  boundaryMin: {x: 45, y: 0, z: 66}
-  boundaryMax: {x: 117, y: 0, z: 135}
+  boundaryMin: {x: 195, y: 0, z: -247}
+  boundaryMax: {x: 245, y: 0, z: -155}
   maxHealth: 2
 --- !u!65 &3776226160084066301
 BoxCollider:
@@ -1716,6 +1717,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bloodEffect: {fileID: 3474865717663033701}
+--- !u!136 &5700500126614775997
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4579009180531846175}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.166893
+  m_Height: 2.0375824
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.78546333, z: 0.0041122437}
 --- !u!1 &4779705750239128228
 GameObject:
   m_ObjectHideFlags: 0
