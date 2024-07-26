@@ -4,27 +4,30 @@ using UnityEngine;
 
 public class HumanSpawner : MonoBehaviour
 {
-    public GameObject characterPrefab;
-    public GameObject characterPrefab2;
-    public Vector3 boundaryMin; 
-    public Vector3 boundaryMax; 
-    
-    void Start(){
-        SpawnCharacter();
-    }
-    
-    void SpawnCharacter()
+    public List<Transform> spawnPoints = new List<Transform>();
+    [SerializeField] private GameObject viking;
+    [SerializeField] private GameObject warrior;
+
+
+    private void Start()
     {
-        int noOfCharacter = Random.Range(0, 5);
-        for (int i = 0; i < noOfCharacter; i++)
+        SpawnCharactersAtAllPoints();
+    }
+
+    void SpawnCharactersAtAllPoints()
+    {
+        // Check if there are any spawn points available
+        if (spawnPoints.Count == 0)
         {
-            float randomX = Random.Range(boundaryMin.x, boundaryMax.x);
-            float randomZ = Random.Range(boundaryMin.z, boundaryMax.z);
-            Vector3 spawnPosition = new Vector3(randomX, transform.position.y, randomZ);
-                
-            Instantiate(characterPrefab, spawnPosition, Quaternion.identity);
-            Instantiate(characterPrefab2, spawnPosition, Quaternion.identity);
+            Debug.LogWarning("No spawn points available.");
+            return;
         }
-       
+
+        // Loop through each spawn point and instantiate a fire element
+        foreach (Transform spawnPoint in spawnPoints)
+        {
+            Instantiate(viking, spawnPoint.position, Quaternion.identity);
+            Instantiate(warrior, spawnPoint.position, Quaternion.identity);
+        }
     }
 }
