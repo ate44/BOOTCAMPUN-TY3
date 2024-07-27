@@ -1,5 +1,8 @@
+using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 public class GoblinController : MonoBehaviour
 {
@@ -18,7 +21,9 @@ public class GoblinController : MonoBehaviour
     private Transform playerTransform;
     private int currentHealth;
 
-
+    private NavMeshAgent goblin;
+    public Transform PlayerTarget;
+    
     void Start()
     {
         if (animator == null)
@@ -26,6 +31,7 @@ public class GoblinController : MonoBehaviour
             animator = GetComponent<Animator>();
         }
 
+        goblin = GetComponent<NavMeshAgent>();
         currentHealth = maxHealth;
         StartCoroutine(PlayRandomAnimation());
     }
@@ -148,4 +154,5 @@ public class GoblinController : MonoBehaviour
         Destroy(gameObject);
     }
 
+   
 }
