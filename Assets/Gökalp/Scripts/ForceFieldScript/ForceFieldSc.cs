@@ -1,50 +1,77 @@
-using System.Collections;
 using UnityEngine;
+using System.Collections;
 
-public class ForceFieldController : MonoBehaviour
+public class ForceFieldSc : MonoBehaviour
 {
-    public Material forceFieldMaterial; // Force field materyalini buraya atayýn
-    public string shaderProperty = "_Intensity"; // Shader Graph'teki property ismi
-    public float maxIntensity = 1f; // Maksimum intensity deðeri
-    public float transitionTime = 1f; // Yaratma ve bozunma süresi
-    public float duration = 5f; // Bariyerin etkin kalma süresi
-
-    private Coroutine currentCoroutine;
+    public Material forceFieldMaterial;
+    public float dissolveSpeed = 1.0f;
+    private float dissolveAmount = 0.0f;
+    private bool isActive = false;
+    private Coroutine deactivateCoroutine;
+    private Coroutine autoDeactivateCoroutine; // Yeni eklenen Coroutine
+    [SerializeField] private GameObject prefab;
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E)) // B tuþuna basýldýðýnda
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            if (currentCoroutine != null)
+            if (!isActive) // Bariyer aktif deðilse
             {
-                StopCoroutine(currentCoroutine);
+                isActive = true;
+                ActivateForceField();
             }
-            currentCoroutine = StartCoroutine(ActivateForceField());
+            // Bariyer aktifken bir þey yapýlmaz
         }
-    }
 
-    private IEnumerator ActivateForceField()
-    {
-        // Yaratma efekti
-        yield return StartCoroutine(ChangeIntensity(0f, maxIntensity, transitionTime));
-
-        // Belirli bir süre boyunca etkin kal
-        yield return new WaitForSeconds(duration);
-
-        // Bozunma efekti
-        yield return StartCoroutine(ChangeIntensity(maxIntensity, 0f, transitionTime));
-    }
-
-    private IEnumerator ChangeIntensity(float from, float to, float time)
-    {
-        float elapsedTime = 0f;
-        while (elapsedTime < time)
+        if (isActive)
         {
-            elapsedTime += Time.deltaTime;
-            float currentIntensity = Mathf.Lerp(from, to, elapsedTime / time);
-            forceFieldMaterial.SetFloat(shaderProperty, currentIntensity);
+            dissolveAmount = Mathf.Min(dissolveAmount + dissolveSpeed * Time.deltaTime, 1.0f);
+        }
+        else if (dissolveAmount > 0.0f) // Dissolve effect while deactivating
+        {
+            dissolveAmount = Mathf.Max(dissolveAmount - dissolveSpeed * Time.deltaTime, 0.0f);
+        }
+
+        forceFieldMaterial.SetFloat("_Dissolve_Amount", dissolveAmount);
+    }
+
+    private void ActivateForceField()
+    {
+        prefab.SetActive(true);
+        dissolveAmount = 0.0f;
+
+        // Otomatik devre dýþý býrakma Coroutine'ini baþlat
+        if (autoDeactivateCoroutine != null)
+        {
+            StopCoroutine(autoDeactivateCoroutine);
+        }
+        autoDeactivateCoroutine = StartCoroutine(AutoDeactivateForceField());
+    }
+
+    private IEnumerator DeactivateForceField()
+    {
+        // Wait for 3 seconds before starting to dissolve
+        yield return new WaitForSeconds(1.0f);
+
+        // Dissolve the force field
+        while (dissolveAmount > 0.0f)
+        {
+            dissolveAmount = Mathf.Max(dissolveAmount - dissolveSpeed * Time.deltaTime, 0.0f);
+            forceFieldMaterial.SetFloat("_Dissolve_Amount", dissolveAmount);
             yield return null;
         }
-        forceFieldMaterial.SetFloat(shaderProperty, to);
+
+        // Deactivate the force field GameObject
+        prefab.SetActive(false);
+        deactivateCoroutine = null;
+    }
+
+    private IEnumerator AutoDeactivateForceField()
+    {
+        // Kuvvet alanýný aktif ettikten 5 saniye sonra devre dýþý býrak
+        yield return new WaitForSeconds(3.0f);
+        isActive = false;
+        deactivateCoroutine = StartCoroutine(DeactivateForceField());
+        autoDeactivateCoroutine = null;
     }
 }

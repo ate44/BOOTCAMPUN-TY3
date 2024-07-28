@@ -152,8 +152,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 824477027695550844}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.025652759, y: -0, z: 0.000000007450581, w: 0.999671}
-  m_LocalPosition: {x: -0.00000026416174, y: -0.0000024153628, z: -0.0000032702478}
+  m_LocalRotation: {x: 0.025652774, y: -0, z: -0, w: 0.999671}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -232,7 +232,7 @@ Transform:
   m_GameObject: {fileID: 1552560049021033461}
   serializedVersion: 2
   m_LocalRotation: {x: 0.0074650347, y: -0.000000029802322, z: -0, w: 0.9999722}
-  m_LocalPosition: {x: -0.00000026416174, y: -0.0000024153628, z: -0.0000032702478}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1517,7 +1517,7 @@ Transform:
   m_GameObject: {fileID: 6688528208103433039}
   serializedVersion: 2
   m_LocalRotation: {x: -0.01067714, y: -0.000000029802322, z: -0.000000007450581, w: 0.999943}
-  m_LocalPosition: {x: -0.00000026416174, y: -0.0000024153628, z: -0.0000032702478}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1702,10 +1702,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forceFieldMaterial: {fileID: 2100000, guid: ae07822eb5c2374459df91ba87c042ee, type: 2}
-  shaderProperty: _Intensity
-  maxIntensity: 1
-  transitionTime: 1
-  duration: 5
+  dissolveSpeed: 1
+  prefab: {fileID: 8970395707222718554}
 --- !u!1 &7210159113479991243
 GameObject:
   m_ObjectHideFlags: 3
@@ -1953,7 +1951,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8656956618405281620}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.018189494, y: 0.0000000018623373, z: 3.3880575e-11, w: 0.9998346}
+  m_LocalRotation: {x: -0.018189494, y: -0.0000000018623373, z: -3.3880575e-11, w: 0.9998346}
   m_LocalPosition: {x: 0, y: 1.5, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2110,6 +2108,7 @@ GameObject:
   - component: {fileID: 4323866382827596386}
   - component: {fileID: 773134961545333218}
   - component: {fileID: 991362345384398636}
+  - component: {fileID: 6301411935667411243}
   m_Layer: 0
   m_Name: ForceField
   m_TagString: Untagged
@@ -2203,6 +2202,33 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &6301411935667411243
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8970395707222718554}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &3215315944207390377
 PrefabInstance:
   m_ObjectHideFlags: 0
