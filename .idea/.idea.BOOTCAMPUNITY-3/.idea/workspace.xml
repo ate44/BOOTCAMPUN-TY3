@@ -6,11 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="0bfb88c0-0c1b-45b1-8023-9e19f3c361aa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BOOTCAMPUNITY-3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BOOTCAMPUNITY-3/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Beliz/LowPoly Fantasy Monsters Pack Ver1.0_Demo/Animations/Mecanim/goblin/goblin.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Beliz/LowPoly Fantasy Monsters Pack Ver1.0_Demo/Animations/Mecanim/goblin/goblin.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Scripts/GoblinController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Beliz/Scripts/GoblinController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Ali(kodcu)/looting/WinterTemplate.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ali(kodcu)/looting/WinterTemplate.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Scripts/TrollController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Beliz/Scripts/TrollController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Beliz/Scripts/TrollSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Beliz/Scripts/TrollSpawner.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Gökalp/Particles/Blood/FX_BloodSplat_01.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Gökalp/Particles/Blood/FX_BloodSplat_01.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Belgin.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Belgin.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/NavMeshAreas.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/NavMeshAreas.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,6 +125,7 @@
       <workItem from="1722022702137" duration="3418000" />
       <workItem from="1722080349365" duration="2706000" />
       <workItem from="1722085332966" duration="2978000" />
+      <workItem from="1722156320077" duration="2318000" />
     </task>
     <servers />
   </component>

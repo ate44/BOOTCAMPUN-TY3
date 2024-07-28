@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class TrollController : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class TrollController : MonoBehaviour
     private bool isPlayerDetected = false;
     private Transform playerTransform;
     private int currentHealth;
-
+    private NavMeshAgent navMeshAgent;
 
     void Start()
     {
@@ -25,6 +26,9 @@ public class TrollController : MonoBehaviour
         {
             animator = GetComponent<Animator>();
         }
+
+        navMeshAgent = GetComponent<NavMeshAgent>();
+        navMeshAgent.speed = speed;
 
         currentHealth = maxHealth;
         StartCoroutine(PlayRandomAnimation());
@@ -34,7 +38,7 @@ public class TrollController : MonoBehaviour
     {
         if (isWalking && !isPlayerDetected)
         {
-            MoveAndCheckBoundaries();
+            Patrol();
         }
         else if (isPlayerDetected)
         {
@@ -50,6 +54,11 @@ public class TrollController : MonoBehaviour
             {
                 isWalking = Random.value > 0.5f;
                 animator.SetBool(isWalkingParameter, isWalking);
+
+                if (isWalking)
+                {
+                    SetRandomDestination();
+                }
 
                 float waitTime = Random.Range(minWaitTime, maxWaitTime);
                 yield return new WaitForSeconds(waitTime);
@@ -95,29 +104,34 @@ public class TrollController : MonoBehaviour
         }
     }
 
-    private void MoveAndCheckBoundaries()
+    private void Patrol()
     {
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
-
-        Vector3 position = transform.position;
-
-        if (position.x < boundaryMin.x || position.x > boundaryMax.x || position.z < boundaryMin.z || position.z > boundaryMax.z)
+        if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
         {
-            Vector3 directionToCenter = (new Vector3((boundaryMin.x + boundaryMax.x) / 2, position.y, (boundaryMin.z + boundaryMax.z) / 2) - position).normalized;
-            Quaternion targetRotation = Quaternion.LookRotation(directionToCenter);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
+            SetRandomDestination();
+        }
+    }
+
+    private void SetRandomDestination()
+    {
+        Vector3 randomDirection = new Vector3(
+            Random.Range(boundaryMin.x, boundaryMax.x),
+            transform.position.y,
+            Random.Range(boundaryMin.z, boundaryMax.z)
+        );
+
+        NavMeshHit hit;
+        if (NavMesh.SamplePosition(randomDirection, out hit, 1.0f, NavMesh.AllAreas))
+        {
+            navMeshAgent.SetDestination(hit.position);
         }
     }
 
     private void FollowPlayer()
     {
-        if (playerTransform != null)
+        if (playerTransform != null && navMeshAgent.isOnNavMesh)
         {
-            Vector3 directionToPlayer = (playerTransform.position - transform.position).normalized;
-            Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
-
-            transform.Translate(Vector3.forward * speed * Time.deltaTime);
+            navMeshAgent.SetDestination(playerTransform.position);
         }
     }
 
@@ -133,19 +147,18 @@ public class TrollController : MonoBehaviour
     void Die()
     {
         Debug.Log("Dead");
-        
 
         StartCoroutine(DestroyingObjects());
-        
     }
 
     IEnumerator DestroyingObjects()
     {
         animator.SetBool("dead", true);
+        navMeshAgent.isStopped = true;
 
         yield return new WaitForSeconds(2.0f);
 
         Destroy(gameObject);
     }
-
 }
+

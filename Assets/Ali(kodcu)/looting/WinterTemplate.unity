@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 8f6313a19ae16254196c96872ad44067, type: 2}
 --- !u!1001 &1877316
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -134,6 +134,10 @@ PrefabInstance:
     - target: {fileID: 104214, guid: fb4e0b01a8eccf24c9e5ca4c30a9b2be, type: 3}
       propertyPath: m_Name
       value: SM_Env_Water (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 104214, guid: fb4e0b01a8eccf24c9e5ca4c30a9b2be, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 421442, guid: fb4e0b01a8eccf24c9e5ca4c30a9b2be, type: 3}
       propertyPath: m_LocalPosition.x
@@ -258,6 +262,10 @@ PrefabInstance:
     - target: {fileID: 184458, guid: bba9610331c8e5040a9ed5720d33f7c5, type: 3}
       propertyPath: m_Name
       value: SM_Env_SnowPile_03 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 184458, guid: bba9610331c8e5040a9ed5720d33f7c5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 439438, guid: bba9610331c8e5040a9ed5720d33f7c5, type: 3}
       propertyPath: m_LocalScale.x
@@ -407,6 +415,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_Ice_01 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 113340, guid: 1951d271315386246b9b2dac3cdb87fb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 483852, guid: 1951d271315386246b9b2dac3cdb87fb, type: 3}
       propertyPath: m_LocalScale.x
       value: 16.32
@@ -485,6 +497,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_SnowPile_03 (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 184458, guid: bba9610331c8e5040a9ed5720d33f7c5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 439438, guid: bba9610331c8e5040a9ed5720d33f7c5, type: 3}
       propertyPath: m_LocalScale.x
       value: 7.67
@@ -558,6 +574,10 @@ PrefabInstance:
     - target: {fileID: 131624, guid: dc77e9af60a304c47a55055c8d51f890, type: 3}
       propertyPath: m_Name
       value: SM_Env_Stream_Straight_01_Snow (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 131624, guid: dc77e9af60a304c47a55055c8d51f890, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 412304, guid: dc77e9af60a304c47a55055c8d51f890, type: 3}
       propertyPath: m_LocalPosition.x
@@ -756,6 +776,10 @@ PrefabInstance:
     - target: {fileID: 184458, guid: bba9610331c8e5040a9ed5720d33f7c5, type: 3}
       propertyPath: m_Name
       value: SM_Env_SnowPile_03 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 184458, guid: bba9610331c8e5040a9ed5720d33f7c5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 439438, guid: bba9610331c8e5040a9ed5720d33f7c5, type: 3}
       propertyPath: m_LocalScale.x
@@ -1101,6 +1125,10 @@ PrefabInstance:
     - target: {fileID: 158894, guid: aff586f492d4c77498328dc57b176dfe, type: 3}
       propertyPath: m_Name
       value: SM_Env_Ice_02 (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 158894, guid: aff586f492d4c77498328dc57b176dfe, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 411648, guid: aff586f492d4c77498328dc57b176dfe, type: 3}
       propertyPath: m_LocalScale.x
@@ -1460,6 +1488,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_SnowPile_03 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 184458, guid: bba9610331c8e5040a9ed5720d33f7c5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 439438, guid: bba9610331c8e5040a9ed5720d33f7c5, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -1811,6 +1843,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_Ice_03 (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 155290, guid: 4562fbe7885fe2b4ba7e925d7f9e0ad1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 478226, guid: 4562fbe7885fe2b4ba7e925d7f9e0ad1, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.55
@@ -1884,6 +1920,10 @@ PrefabInstance:
     - target: {fileID: 113340, guid: 1951d271315386246b9b2dac3cdb87fb, type: 3}
       propertyPath: m_Name
       value: SM_Env_Ice_01 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 113340, guid: 1951d271315386246b9b2dac3cdb87fb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 483852, guid: 1951d271315386246b9b2dac3cdb87fb, type: 3}
       propertyPath: m_LocalScale.x
@@ -2100,6 +2140,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_Stream_Corner_01_Snow (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 144566, guid: 193fe2f94b959f84e8ab2fa84babbdb3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 496462, guid: 193fe2f94b959f84e8ab2fa84babbdb3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -61.68099
@@ -2285,6 +2329,10 @@ PrefabInstance:
     - target: {fileID: 131624, guid: dc77e9af60a304c47a55055c8d51f890, type: 3}
       propertyPath: m_Name
       value: SM_Env_Stream_Straight_01_Snow (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 131624, guid: dc77e9af60a304c47a55055c8d51f890, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 412304, guid: dc77e9af60a304c47a55055c8d51f890, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2484,6 +2532,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_Ice_02 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 158894, guid: aff586f492d4c77498328dc57b176dfe, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 411648, guid: aff586f492d4c77498328dc57b176dfe, type: 3}
       propertyPath: m_LocalScale.x
       value: 5.86
@@ -2557,6 +2609,10 @@ PrefabInstance:
     - target: {fileID: 184458, guid: bba9610331c8e5040a9ed5720d33f7c5, type: 3}
       propertyPath: m_Name
       value: SM_Env_SnowPile_03 (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 184458, guid: bba9610331c8e5040a9ed5720d33f7c5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 439438, guid: bba9610331c8e5040a9ed5720d33f7c5, type: 3}
       propertyPath: m_LocalScale.x
@@ -2921,6 +2977,10 @@ PrefabInstance:
     - target: {fileID: 113340, guid: 1951d271315386246b9b2dac3cdb87fb, type: 3}
       propertyPath: m_Name
       value: SM_Env_Ice_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 113340, guid: 1951d271315386246b9b2dac3cdb87fb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 483852, guid: 1951d271315386246b9b2dac3cdb87fb, type: 3}
       propertyPath: m_LocalScale.x
@@ -4308,6 +4368,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_Ice_01 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 113340, guid: 1951d271315386246b9b2dac3cdb87fb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 483852, guid: 1951d271315386246b9b2dac3cdb87fb, type: 3}
       propertyPath: m_LocalScale.x
       value: 16.320002
@@ -4792,6 +4856,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_Stream_Straight_01_Snow (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 131624, guid: dc77e9af60a304c47a55055c8d51f890, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 412304, guid: dc77e9af60a304c47a55055c8d51f890, type: 3}
       propertyPath: m_LocalPosition.x
       value: -51.766987
@@ -5236,6 +5304,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_Ice_03 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 155290, guid: 4562fbe7885fe2b4ba7e925d7f9e0ad1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 478226, guid: 4562fbe7885fe2b4ba7e925d7f9e0ad1, type: 3}
       propertyPath: m_LocalScale.x
       value: 5
@@ -5314,6 +5386,10 @@ PrefabInstance:
     - target: {fileID: 113340, guid: 1951d271315386246b9b2dac3cdb87fb, type: 3}
       propertyPath: m_Name
       value: SM_Env_Ice_01 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 113340, guid: 1951d271315386246b9b2dac3cdb87fb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 483852, guid: 1951d271315386246b9b2dac3cdb87fb, type: 3}
       propertyPath: m_LocalScale.x
@@ -5714,6 +5790,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_Ice_02 (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 158894, guid: aff586f492d4c77498328dc57b176dfe, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 411648, guid: aff586f492d4c77498328dc57b176dfe, type: 3}
       propertyPath: m_LocalScale.x
       value: 10
@@ -6037,6 +6117,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_Ice_01 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 113340, guid: 1951d271315386246b9b2dac3cdb87fb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 483852, guid: 1951d271315386246b9b2dac3cdb87fb, type: 3}
       propertyPath: m_LocalScale.x
       value: 8.16
@@ -6194,6 +6278,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4386687420260066031, guid: 115850cdeed176b4a92f98a80f305c5f, type: 3}
   m_PrefabInstance: {fileID: 1286881568}
   m_PrefabAsset: {fileID: 0}
+--- !u!195 &659168967
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 659168959}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 1
+  m_ObstacleAvoidanceType: 4
 --- !u!4 &663956634 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4147185747737992, guid: 02f7f04a484c69143a794e60d5a935b1, type: 3}
@@ -6210,6 +6316,10 @@ PrefabInstance:
     - target: {fileID: 165212, guid: 83b86feebbdcc1d4f97873b59352c5b3, type: 3}
       propertyPath: m_Name
       value: SM_Bld_Village_SnowSheet_01 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 165212, guid: 83b86feebbdcc1d4f97873b59352c5b3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 421498, guid: 83b86feebbdcc1d4f97873b59352c5b3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6395,6 +6505,10 @@ PrefabInstance:
     - target: {fileID: 184458, guid: bba9610331c8e5040a9ed5720d33f7c5, type: 3}
       propertyPath: m_Name
       value: SM_Env_SnowPile_03 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 184458, guid: bba9610331c8e5040a9ed5720d33f7c5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 439438, guid: bba9610331c8e5040a9ed5720d33f7c5, type: 3}
       propertyPath: m_LocalScale.x
@@ -6727,6 +6841,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_Ice_02 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 158894, guid: aff586f492d4c77498328dc57b176dfe, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 411648, guid: aff586f492d4c77498328dc57b176dfe, type: 3}
       propertyPath: m_LocalScale.x
       value: 10
@@ -6936,6 +7054,10 @@ PrefabInstance:
     - target: {fileID: 155290, guid: 4562fbe7885fe2b4ba7e925d7f9e0ad1, type: 3}
       propertyPath: m_Name
       value: SM_Env_Ice_03 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 155290, guid: 4562fbe7885fe2b4ba7e925d7f9e0ad1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 478226, guid: 4562fbe7885fe2b4ba7e925d7f9e0ad1, type: 3}
       propertyPath: m_LocalScale.x
@@ -7212,6 +7334,10 @@ PrefabInstance:
     - target: {fileID: 184458, guid: bba9610331c8e5040a9ed5720d33f7c5, type: 3}
       propertyPath: m_Name
       value: SM_Env_SnowPile_03 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 184458, guid: bba9610331c8e5040a9ed5720d33f7c5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 439438, guid: bba9610331c8e5040a9ed5720d33f7c5, type: 3}
       propertyPath: m_LocalScale.x
@@ -7971,6 +8097,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_Ice_02 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 158894, guid: aff586f492d4c77498328dc57b176dfe, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 411648, guid: aff586f492d4c77498328dc57b176dfe, type: 3}
       propertyPath: m_LocalScale.x
       value: 11.833965
@@ -8248,6 +8378,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_Ice_01 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 113340, guid: 1951d271315386246b9b2dac3cdb87fb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 483852, guid: 1951d271315386246b9b2dac3cdb87fb, type: 3}
       propertyPath: m_LocalScale.x
       value: 8.260001
@@ -8321,6 +8455,10 @@ PrefabInstance:
     - target: {fileID: 184458, guid: bba9610331c8e5040a9ed5720d33f7c5, type: 3}
       propertyPath: m_Name
       value: SM_Env_SnowPile_03 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 184458, guid: bba9610331c8e5040a9ed5720d33f7c5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 439438, guid: bba9610331c8e5040a9ed5720d33f7c5, type: 3}
       propertyPath: m_LocalScale.x
@@ -8523,6 +8661,10 @@ PrefabInstance:
     - target: {fileID: 144030, guid: 7665d6e672d1a8d4cbc43402ef478832, type: 3}
       propertyPath: m_Name
       value: SM_Env_Stream_Straight_02_Snow
+      objectReference: {fileID: 0}
+    - target: {fileID: 144030, guid: 7665d6e672d1a8d4cbc43402ef478832, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 496986, guid: 7665d6e672d1a8d4cbc43402ef478832, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8769,6 +8911,10 @@ PrefabInstance:
     - target: {fileID: 113340, guid: 1951d271315386246b9b2dac3cdb87fb, type: 3}
       propertyPath: m_Name
       value: SM_Env_Ice_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 113340, guid: 1951d271315386246b9b2dac3cdb87fb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 483852, guid: 1951d271315386246b9b2dac3cdb87fb, type: 3}
       propertyPath: m_LocalScale.x
@@ -9206,6 +9352,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_Ice_03 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 155290, guid: 4562fbe7885fe2b4ba7e925d7f9e0ad1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 478226, guid: 4562fbe7885fe2b4ba7e925d7f9e0ad1, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.76
@@ -9428,6 +9578,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_Ice_02 (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 158894, guid: aff586f492d4c77498328dc57b176dfe, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 411648, guid: aff586f492d4c77498328dc57b176dfe, type: 3}
       propertyPath: m_LocalScale.x
       value: 10
@@ -9648,6 +9802,10 @@ PrefabInstance:
     - target: {fileID: 165212, guid: 83b86feebbdcc1d4f97873b59352c5b3, type: 3}
       propertyPath: m_Name
       value: SM_Bld_Village_SnowSheet_01 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 165212, guid: 83b86feebbdcc1d4f97873b59352c5b3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 421498, guid: 83b86feebbdcc1d4f97873b59352c5b3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9970,6 +10128,10 @@ PrefabInstance:
     - target: {fileID: 113340, guid: 1951d271315386246b9b2dac3cdb87fb, type: 3}
       propertyPath: m_Name
       value: SM_Env_Ice_01 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 113340, guid: 1951d271315386246b9b2dac3cdb87fb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 483852, guid: 1951d271315386246b9b2dac3cdb87fb, type: 3}
       propertyPath: m_LocalScale.x
@@ -10428,6 +10590,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_Ice_02 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 158894, guid: aff586f492d4c77498328dc57b176dfe, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 411648, guid: aff586f492d4c77498328dc57b176dfe, type: 3}
       propertyPath: m_LocalScale.x
       value: 10
@@ -10635,6 +10801,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_Ice_03 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 155290, guid: 4562fbe7885fe2b4ba7e925d7f9e0ad1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 478226, guid: 4562fbe7885fe2b4ba7e925d7f9e0ad1, type: 3}
       propertyPath: m_LocalScale.x
       value: 6.7
@@ -10708,6 +10878,10 @@ PrefabInstance:
     - target: {fileID: 189700, guid: 8385b5d2216332940bc665cd517a4e3b, type: 3}
       propertyPath: m_Name
       value: SM_Env_SnowPile_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 189700, guid: 8385b5d2216332940bc665cd517a4e3b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 430762, guid: 8385b5d2216332940bc665cd517a4e3b, type: 3}
       propertyPath: m_LocalScale.x
@@ -11054,6 +11228,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_Water (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 104214, guid: fb4e0b01a8eccf24c9e5ca4c30a9b2be, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 421442, guid: fb4e0b01a8eccf24c9e5ca4c30a9b2be, type: 3}
       propertyPath: m_LocalPosition.x
       value: -57.750988
@@ -11189,6 +11367,10 @@ PrefabInstance:
     - target: {fileID: 158894, guid: aff586f492d4c77498328dc57b176dfe, type: 3}
       propertyPath: m_Name
       value: SM_Env_Ice_02 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 158894, guid: aff586f492d4c77498328dc57b176dfe, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 411648, guid: aff586f492d4c77498328dc57b176dfe, type: 3}
       propertyPath: m_LocalScale.x
@@ -11337,6 +11519,10 @@ PrefabInstance:
     - target: {fileID: 158894, guid: aff586f492d4c77498328dc57b176dfe, type: 3}
       propertyPath: m_Name
       value: SM_Env_Ice_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 158894, guid: aff586f492d4c77498328dc57b176dfe, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 411648, guid: aff586f492d4c77498328dc57b176dfe, type: 3}
       propertyPath: m_LocalScale.x
@@ -11490,6 +11676,10 @@ PrefabInstance:
     - target: {fileID: 158894, guid: aff586f492d4c77498328dc57b176dfe, type: 3}
       propertyPath: m_Name
       value: SM_Env_Ice_02 (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 158894, guid: aff586f492d4c77498328dc57b176dfe, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 411648, guid: aff586f492d4c77498328dc57b176dfe, type: 3}
       propertyPath: m_LocalScale.x
@@ -11909,6 +12099,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_Ice_03 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 155290, guid: 4562fbe7885fe2b4ba7e925d7f9e0ad1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 478226, guid: 4562fbe7885fe2b4ba7e925d7f9e0ad1, type: 3}
       propertyPath: m_LocalScale.x
       value: 5
@@ -12203,6 +12397,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_SnowPile_03 (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 184458, guid: bba9610331c8e5040a9ed5720d33f7c5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 439438, guid: bba9610331c8e5040a9ed5720d33f7c5, type: 3}
       propertyPath: m_LocalScale.x
       value: 7.67
@@ -12324,6 +12522,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4386687420259712719, guid: 115850cdeed176b4a92f98a80f305c5f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 659168960}
+    - targetCorrespondingSourceObject: {fileID: 4386687420259712719, guid: 115850cdeed176b4a92f98a80f305c5f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 659168967}
   m_SourcePrefab: {fileID: 100100000, guid: 115850cdeed176b4a92f98a80f305c5f, type: 3}
 --- !u!1 &1288246129
 GameObject:
@@ -12877,7 +13078,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5113764329516853857, guid: d78a5ff59ee2c2c4eae750d89fb64b37, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -40
+      value: -53
       objectReference: {fileID: 0}
     - target: {fileID: 5113764329516853857, guid: d78a5ff59ee2c2c4eae750d89fb64b37, type: 3}
       propertyPath: m_LocalPosition.y
@@ -13025,11 +13226,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8484435925097599996, guid: d78a5ff59ee2c2c4eae750d89fb64b37, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0000000018623373
+      value: 0.0000000018623373
       objectReference: {fileID: 0}
     - target: {fileID: 8484435925097599996, guid: d78a5ff59ee2c2c4eae750d89fb64b37, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -3.3880575e-11
+      value: 3.3880575e-11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13312,6 +13513,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_Ice_02 (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 158894, guid: aff586f492d4c77498328dc57b176dfe, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 411648, guid: aff586f492d4c77498328dc57b176dfe, type: 3}
       propertyPath: m_LocalScale.x
       value: 10
@@ -13385,6 +13590,10 @@ PrefabInstance:
     - target: {fileID: 155290, guid: 4562fbe7885fe2b4ba7e925d7f9e0ad1, type: 3}
       propertyPath: m_Name
       value: SM_Env_Ice_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 155290, guid: 4562fbe7885fe2b4ba7e925d7f9e0ad1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 478226, guid: 4562fbe7885fe2b4ba7e925d7f9e0ad1, type: 3}
       propertyPath: m_LocalScale.x
@@ -13583,6 +13792,10 @@ PrefabInstance:
     - target: {fileID: 158894, guid: aff586f492d4c77498328dc57b176dfe, type: 3}
       propertyPath: m_Name
       value: SM_Env_Ice_02 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 158894, guid: aff586f492d4c77498328dc57b176dfe, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 411648, guid: aff586f492d4c77498328dc57b176dfe, type: 3}
       propertyPath: m_LocalScale.x
@@ -14775,6 +14988,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_Ice_01 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 113340, guid: 1951d271315386246b9b2dac3cdb87fb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 483852, guid: 1951d271315386246b9b2dac3cdb87fb, type: 3}
       propertyPath: m_LocalScale.x
       value: 8.16
@@ -15364,6 +15581,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_Ice_03 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 155290, guid: 4562fbe7885fe2b4ba7e925d7f9e0ad1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 478226, guid: 4562fbe7885fe2b4ba7e925d7f9e0ad1, type: 3}
       propertyPath: m_LocalScale.x
       value: 13.100001
@@ -15567,6 +15788,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_Ice_02 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 158894, guid: aff586f492d4c77498328dc57b176dfe, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 411648, guid: aff586f492d4c77498328dc57b176dfe, type: 3}
       propertyPath: m_LocalScale.x
       value: 7.2199993
@@ -15640,6 +15865,10 @@ PrefabInstance:
     - target: {fileID: 165212, guid: 83b86feebbdcc1d4f97873b59352c5b3, type: 3}
       propertyPath: m_Name
       value: SM_Bld_Village_SnowSheet_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 165212, guid: 83b86feebbdcc1d4f97873b59352c5b3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 421498, guid: 83b86feebbdcc1d4f97873b59352c5b3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -15962,6 +16191,10 @@ PrefabInstance:
     - target: {fileID: 165212, guid: 83b86feebbdcc1d4f97873b59352c5b3, type: 3}
       propertyPath: m_Name
       value: SM_Bld_Village_SnowSheet_01 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 165212, guid: 83b86feebbdcc1d4f97873b59352c5b3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 421498, guid: 83b86feebbdcc1d4f97873b59352c5b3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16489,6 +16722,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_SnowPile_03 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 184458, guid: bba9610331c8e5040a9ed5720d33f7c5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 439438, guid: bba9610331c8e5040a9ed5720d33f7c5, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -16623,6 +16860,10 @@ PrefabInstance:
     - target: {fileID: 131624, guid: dc77e9af60a304c47a55055c8d51f890, type: 3}
       propertyPath: m_Name
       value: SM_Env_Stream_Straight_01_Snow
+      objectReference: {fileID: 0}
+    - target: {fileID: 131624, guid: dc77e9af60a304c47a55055c8d51f890, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 412304, guid: dc77e9af60a304c47a55055c8d51f890, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16872,6 +17113,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_Ice_03 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 155290, guid: 4562fbe7885fe2b4ba7e925d7f9e0ad1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 478226, guid: 4562fbe7885fe2b4ba7e925d7f9e0ad1, type: 3}
       propertyPath: m_LocalScale.x
       value: 5
@@ -17068,6 +17313,10 @@ PrefabInstance:
     - target: {fileID: 158894, guid: aff586f492d4c77498328dc57b176dfe, type: 3}
       propertyPath: m_Name
       value: SM_Env_Ice_02 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 158894, guid: aff586f492d4c77498328dc57b176dfe, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 411648, guid: aff586f492d4c77498328dc57b176dfe, type: 3}
       propertyPath: m_LocalScale.x
@@ -17270,6 +17519,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_SnowPile_03 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 184458, guid: bba9610331c8e5040a9ed5720d33f7c5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 439438, guid: bba9610331c8e5040a9ed5720d33f7c5, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.8500001
@@ -17405,6 +17658,10 @@ PrefabInstance:
     - target: {fileID: 144030, guid: 7665d6e672d1a8d4cbc43402ef478832, type: 3}
       propertyPath: m_Name
       value: SM_Env_Stream_Straight_02_Snow (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 144030, guid: 7665d6e672d1a8d4cbc43402ef478832, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 496986, guid: 7665d6e672d1a8d4cbc43402ef478832, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17946,6 +18203,10 @@ PrefabInstance:
     - target: {fileID: 184458, guid: bba9610331c8e5040a9ed5720d33f7c5, type: 3}
       propertyPath: m_Name
       value: SM_Env_SnowPile_03 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 184458, guid: bba9610331c8e5040a9ed5720d33f7c5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 439438, guid: bba9610331c8e5040a9ed5720d33f7c5, type: 3}
       propertyPath: m_LocalScale.x
@@ -18713,6 +18974,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_SnowPile_03
       objectReference: {fileID: 0}
+    - target: {fileID: 184458, guid: bba9610331c8e5040a9ed5720d33f7c5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 439438, guid: bba9610331c8e5040a9ed5720d33f7c5, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.8500001
@@ -18901,6 +19166,10 @@ PrefabInstance:
     - target: {fileID: 155290, guid: 4562fbe7885fe2b4ba7e925d7f9e0ad1, type: 3}
       propertyPath: m_Name
       value: SM_Env_Ice_03 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 155290, guid: 4562fbe7885fe2b4ba7e925d7f9e0ad1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 478226, guid: 4562fbe7885fe2b4ba7e925d7f9e0ad1, type: 3}
       propertyPath: m_LocalScale.x
@@ -19178,6 +19447,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_Water
       objectReference: {fileID: 0}
+    - target: {fileID: 104214, guid: fb4e0b01a8eccf24c9e5ca4c30a9b2be, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 421442, guid: fb4e0b01a8eccf24c9e5ca4c30a9b2be, type: 3}
       propertyPath: m_LocalPosition.x
       value: -57.750988
@@ -19244,6 +19517,10 @@ PrefabInstance:
     - target: {fileID: 113340, guid: 1951d271315386246b9b2dac3cdb87fb, type: 3}
       propertyPath: m_Name
       value: SM_Env_Ice_01 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 113340, guid: 1951d271315386246b9b2dac3cdb87fb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 483852, guid: 1951d271315386246b9b2dac3cdb87fb, type: 3}
       propertyPath: m_LocalScale.x
@@ -19657,6 +19934,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_Ice_02 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 158894, guid: aff586f492d4c77498328dc57b176dfe, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 411648, guid: aff586f492d4c77498328dc57b176dfe, type: 3}
       propertyPath: m_LocalScale.x
       value: 10
@@ -19934,6 +20215,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Village_SnowSheet_01
       objectReference: {fileID: 0}
+    - target: {fileID: 165212, guid: 83b86feebbdcc1d4f97873b59352c5b3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 421498, guid: 83b86feebbdcc1d4f97873b59352c5b3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -113.200874
@@ -19995,6 +20280,10 @@ PrefabInstance:
     - target: {fileID: 155290, guid: 4562fbe7885fe2b4ba7e925d7f9e0ad1, type: 3}
       propertyPath: m_Name
       value: SM_Env_Ice_03 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 155290, guid: 4562fbe7885fe2b4ba7e925d7f9e0ad1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 478226, guid: 4562fbe7885fe2b4ba7e925d7f9e0ad1, type: 3}
       propertyPath: m_LocalScale.x
@@ -20198,6 +20487,10 @@ PrefabInstance:
     - target: {fileID: 184458, guid: bba9610331c8e5040a9ed5720d33f7c5, type: 3}
       propertyPath: m_Name
       value: SM_Env_SnowPile_03 (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 184458, guid: bba9610331c8e5040a9ed5720d33f7c5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 439438, guid: bba9610331c8e5040a9ed5720d33f7c5, type: 3}
       propertyPath: m_LocalScale.x
@@ -20598,6 +20891,10 @@ PrefabInstance:
     - target: {fileID: 144566, guid: 193fe2f94b959f84e8ab2fa84babbdb3, type: 3}
       propertyPath: m_Name
       value: SM_Env_Stream_Corner_01_Snow
+      objectReference: {fileID: 0}
+    - target: {fileID: 144566, guid: 193fe2f94b959f84e8ab2fa84babbdb3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 496462, guid: 193fe2f94b959f84e8ab2fa84babbdb3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -21069,6 +21366,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_Ice_03 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 155290, guid: 4562fbe7885fe2b4ba7e925d7f9e0ad1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 478226, guid: 4562fbe7885fe2b4ba7e925d7f9e0ad1, type: 3}
       propertyPath: m_LocalScale.x
       value: 5
@@ -21494,6 +21795,10 @@ PrefabInstance:
     - target: {fileID: 189700, guid: 8385b5d2216332940bc665cd517a4e3b, type: 3}
       propertyPath: m_Name
       value: SM_Env_SnowPile_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 189700, guid: 8385b5d2216332940bc665cd517a4e3b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 430762, guid: 8385b5d2216332940bc665cd517a4e3b, type: 3}
       propertyPath: m_LocalScale.x
