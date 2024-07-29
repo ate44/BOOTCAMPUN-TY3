@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AhmetGameover.unity
     guid: 30bb6d028079c6742a99e4d6200398e0
+  - enabled: 1
+    path: "Assets/Scenes/PodSat\u0131nAl\u0131m.unity"
+    guid: 84c3a0fd9cee17640b95c53bd63822fd
+  - enabled: 1
+    path: Assets/Scenes/Belgin.unity
+    guid: 409dd9393ea4d644b9bfb7d5b15d5d21
   m_configObjects: {}
