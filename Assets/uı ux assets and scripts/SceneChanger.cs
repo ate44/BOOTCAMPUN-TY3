@@ -1,9 +1,20 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
+using static UnityEngine.Rendering.DebugUI;
 
 public class SceneChanger : MonoBehaviour
 {
     public GameObject player; // Player GameObject'ini referans olarak tutmak için
+    public GameObject marketPanel;
+    public GameObject UIPanel;
+    public Transform outMarketPos;
+    public static bool isPlayerInMarket = false;
+
+    void Awake()
+    {
+        marketPanel.SetActive(false);
+    }
 
     void Start()
     {
@@ -12,6 +23,27 @@ public class SceneChanger : MonoBehaviour
         {
             player = GameObject.FindGameObjectWithTag("Player");
         }
+    }
+
+    private void Update()
+    {
+        if (isPlayerInMarket)
+        {
+            UIPanel.SetActive(false);
+            marketPanel.SetActive(true);
+            
+        }
+    }
+
+    public void ExitMenu()
+    {
+        //player.transform.localPosition = outMarketPos.position;
+        //player.transform.position = outMarketPos.position;
+        isPlayerInMarket = false;
+        marketPanel.SetActive(false);
+        UIPanel.SetActive(true);
+
+
     }
 
     // Çarpýþma anýnda tetiklenecek olan metod
@@ -27,11 +59,12 @@ public class SceneChanger : MonoBehaviour
             }
 
             // Fare imlecini görünür ve serbest hale getir
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+            UnityEngine.Cursor.lockState = CursorLockMode.None;
+            UnityEngine.Cursor.visible = true;
 
-            // "PodSatýnAlým" adlý sahneyi yükle
-            SceneManager.LoadScene("PodSatýnAlým");
+            isPlayerInMarket = true;
+            collision.transform.position = outMarketPos.transform.position;
+            //collision.attachedRigidbody.velocity = Vector3.zero;
         }
     }
 
