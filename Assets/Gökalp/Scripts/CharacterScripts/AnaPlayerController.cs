@@ -43,24 +43,18 @@ public class AnaPlayerController : MonoBehaviour
         {
             HandleRotation();
         }
+
+
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            Debug.Log("öNCE");
             ps.KullanExtraDamage();
-            Debug.Log("Sonra");
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            ps.KullanEnergy();
-        }
+        
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             ps.KullanHealth();
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            ps.KullanShield();
-        }
+
 
     }
 

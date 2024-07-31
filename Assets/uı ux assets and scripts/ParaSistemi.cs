@@ -87,23 +87,6 @@ public class ParaSistemi : MonoBehaviour
             }
         }
 
-        // Ýksir kullanma iþlemleri için tuþ kontrolleri
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            KullanExtraDamage();
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            KullanEnergy();
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            KullanHealth();
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            KullanShield();
-        }
     }
 
     void IksirKullanExtraDamage()
@@ -111,8 +94,8 @@ public class ParaSistemi : MonoBehaviour
         if (para >= 100)
         {
             para -= 100;
-            iksirSayisiExtraDamage++;
-            extrahasar++;
+            iksirSayisiExtraDamage += 1;
+            extrahasar += 1;
             ParaGuncelle();
             IksirGuncelle();
             OynatSatinAlmaSesi();
@@ -129,8 +112,9 @@ public class ParaSistemi : MonoBehaviour
         if (para >= 50)
         {
             para -= 50;
-            iksirSayisiEnergy++;
-            enerjisayisi++;
+            iksirSayisiEnergy += 1;
+            enerjisayisi += 1;
+
             ParaGuncelle();
             IksirGuncelle();
             OynatSatinAlmaSesi();
@@ -147,8 +131,8 @@ public class ParaSistemi : MonoBehaviour
         if (para >= 50)
         {
             para -= 50;
-            iksirSayisiHealth++;
-            cansayisi++;
+            iksirSayisiHealth += 1;
+            cansayisi += 1;
             ParaGuncelle();
             IksirGuncelle();
             OynatSatinAlmaSesi();
@@ -166,8 +150,8 @@ public class ParaSistemi : MonoBehaviour
         if (para >= 100)
         {
             para -= 100;
-            iksirSayisiShield++;
-            kalkan++;
+            iksirSayisiShield += 1;
+            kalkan += 1;
             ParaGuncelle();
             IksirGuncelle();
             OynatSatinAlmaSesi();
@@ -181,10 +165,10 @@ public class ParaSistemi : MonoBehaviour
 
    public void KullanExtraDamage()
     {
-        if (extrahasar > 0 && iksirSayisiExtraDamage > 0)
+        if (extrahasar > 0)
         {
-            extrahasar--;
-            iksirSayisiExtraDamage--;
+            extrahasar -= 1;
+            iksirSayisiExtraDamage -= 1;
             IksirGuncelle();
             Debug.Log("Extra Damage Potion kullanýldý, kalan sayýsý: " + iksirSayisiExtraDamage);
         }
@@ -197,10 +181,10 @@ public class ParaSistemi : MonoBehaviour
 
    public void KullanEnergy()
     {
-        if (enerjisayisi > 0 && iksirSayisiEnergy > 0)
+        if (enerjisayisi > 0)
         {
-            enerjisayisi--;
-            iksirSayisiEnergy--;
+            enerjisayisi -= 1;
+            iksirSayisiEnergy -= 1;
             IksirGuncelle();
             Debug.Log("Energy Potion kullanýldý, kalan sayýsý: " + iksirSayisiEnergy);
         }
@@ -213,10 +197,10 @@ public class ParaSistemi : MonoBehaviour
 
   public  void KullanHealth()
     {
-        if (cansayisi > 0 && iksirSayisiHealth > 0)
+        if (cansayisi > 0)
         {
-            cansayisi--;
-            iksirSayisiHealth--;
+            cansayisi -= 1;
+            iksirSayisiHealth -= 1;
             IksirGuncelle();
             Debug.Log("Health Potion kullanýldý, kalan sayýsý: " + iksirSayisiHealth);
         }
@@ -229,10 +213,10 @@ public class ParaSistemi : MonoBehaviour
 
   public  void KullanShield()
     {
-        if (kalkan > 0 && iksirSayisiShield > 0)
+        if (kalkan > 0)
         {
-            kalkan--;
-            iksirSayisiShield--;
+            kalkan -= 1;
+            iksirSayisiShield -= 1;
             IksirGuncelle();
             Debug.Log("Shield Potion kullanýldý, kalan sayýsý: " + iksirSayisiShield);
         }
@@ -247,7 +231,7 @@ public class ParaSistemi : MonoBehaviour
     {
         if (iksirSayisiExtraDamage > 0)
         {
-            iksirSayisiExtraDamage--;
+            iksirSayisiExtraDamage -= 1;
             para += 100;
             ParaGuncelle();
             IksirGuncelle();
@@ -264,7 +248,7 @@ public class ParaSistemi : MonoBehaviour
     {
         if (iksirSayisiEnergy > 0)
         {
-            iksirSayisiEnergy--;
+            iksirSayisiEnergy -= 1;
             para += 50;
             ParaGuncelle();
             IksirGuncelle();
@@ -281,7 +265,7 @@ public class ParaSistemi : MonoBehaviour
     {
         if (iksirSayisiHealth > 0)
         {
-            iksirSayisiHealth--;
+            iksirSayisiHealth -= 1;
             para += 50;
             ParaGuncelle();
             IksirGuncelle();
@@ -298,7 +282,7 @@ public class ParaSistemi : MonoBehaviour
     {
         if (iksirSayisiShield > 0)
         {
-            iksirSayisiShield--;
+            iksirSayisiShield -= 1;
             para += 100;
             ParaGuncelle();
             IksirGuncelle();

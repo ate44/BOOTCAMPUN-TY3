@@ -10,18 +10,29 @@ public class ForceFieldSc : MonoBehaviour
     private Coroutine deactivateCoroutine;
     private Coroutine autoDeactivateCoroutine; // Yeni eklenen Coroutine
     [SerializeField] private GameObject prefab;
+    private ParaSistemi ps;
+
+    private void Start()
+    {
+        ps = GetComponent<ParaSistemi>();
+    }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if(ps.kalkan > 0)
         {
-            if (!isActive) // Bariyer aktif deðilse
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                isActive = true;
-                ActivateForceField();
+                if (!isActive) // Bariyer aktif deðilse
+                {
+                    isActive = true;
+                    ActivateForceField();
+                    ps.KullanShield();
+                }
+                // Bariyer aktifken bir þey yapýlmaz
             }
-            // Bariyer aktifken bir þey yapýlmaz
         }
+        
 
         if (isActive)
         {
