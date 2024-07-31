@@ -6,6 +6,18 @@ public class EnemyAttackCollider : MonoBehaviour
 {
     public int damage = 10; // Düþmanýn silahýnýn vereceði hasar miktarý
 
+    private AudioManagerSc audioManager;
+
+    void Awake()
+    {
+        audioManager = FindObjectOfType<AudioManagerSc>();
+        if (audioManager == null)
+        {
+            Debug.LogError("AudioManager not found in the scene!");
+        }
+    }
+
+
     private void OnTriggerEnter(Collider other)
     {
         // Eðer çarpýþan nesne "Player" tagine sahipse
@@ -16,6 +28,8 @@ public class EnemyAttackCollider : MonoBehaviour
             CanBari playerHealth = GetComponent<CanBari>();
             if (playerHealth != null)
             {
+                audioManager.PlaySFX(audioManager.wounded);
+                audioManager.PlaySFX(audioManager.swordHitting);
                 Debug.Log("2");
                 // Hasar ver ve HasarAlindi metodunu çaðýr
                 playerHealth.can -= damage;

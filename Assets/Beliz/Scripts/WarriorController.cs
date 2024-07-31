@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WarriorController : MonoBehaviour
 {
@@ -18,7 +19,18 @@ public class WarriorController : MonoBehaviour
     private Transform playerTransform;
     private int currentHealth;
 
-    private EnemyCounter enemyCounter;
+
+
+    private AudioManagerSc audioManager;
+
+    void Awake()
+    {
+        audioManager = FindObjectOfType<AudioManagerSc>();
+        if (audioManager == null)
+        {
+            Debug.LogError("AudioManager not found in the scene!");
+        }
+    }
 
 
     void Start()
@@ -125,6 +137,8 @@ public class WarriorController : MonoBehaviour
 
     public void TakeDamage()
     {
+        audioManager.PlaySFX(audioManager.wounded);
+        audioManager.PlaySFX(audioManager.swordHitting);
         currentHealth--;
         if (currentHealth <= 0)
         {
@@ -136,10 +150,12 @@ public class WarriorController : MonoBehaviour
     {
         Debug.Log("�LD�");
 
-        enemyCounter.counter++;
+        audioManager.PlaySFX(audioManager.deathScream);
+        //enemyCounter.counter++;
 
-        Debug.Log(enemyCounter.counter);
-        
+        //Debug.Log(enemyCounter.counter);
+
+                
 
         StartCoroutine(DestroyingObjects());
         
@@ -152,6 +168,7 @@ public class WarriorController : MonoBehaviour
         yield return new WaitForSeconds(3.9f);
 
         Destroy(gameObject);
+
     }
 
 }

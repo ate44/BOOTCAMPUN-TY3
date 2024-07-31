@@ -14,6 +14,17 @@ public class CanBari : MonoBehaviour
     public float kirmiziEkranSuresi = 0.5f; // Kýrmýzý ekranýn ne kadar sürede kaybolacaðý
     public float kirmiziEkranAlfa = 0.5f; // Kýrmýzý ekranýn alfa deðeri
 
+    private AudioManagerSc audioManager;
+
+    void Awake()
+    {
+        audioManager = FindObjectOfType<AudioManagerSc>();
+        if (audioManager == null)
+        {
+            Debug.LogError("AudioManager not found in the scene!");
+        }
+    }
+
     void Start()
     {
         maxCan = can;
@@ -35,11 +46,12 @@ public class CanBari : MonoBehaviour
 
         if (can <= 0)
         {
+            audioManager.PlaySFX(audioManager.deathScream);
             if (bar != null)
             {
                 Destroy(bar.gameObject); // Bar GameObject'ini yok et
             }
-            SceneManager.LoadScene(3); // Oyuncu ölürse sahneyi deðiþtir
+            SceneManager.LoadScene(2); // Oyuncu ölürse sahneyi deðiþtir
         }
 
         if (can > maxCan)

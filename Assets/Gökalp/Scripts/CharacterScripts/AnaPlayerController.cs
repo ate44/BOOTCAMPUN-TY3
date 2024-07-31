@@ -20,6 +20,18 @@ public class AnaPlayerController : MonoBehaviour
     private Transform closestTarget;
     private Stamina staminaComponent;
     private ParaSistemi ps;
+
+    private AudioManagerSc audioManager;
+
+    void Awake()
+    {
+        audioManager = FindObjectOfType<AudioManagerSc>();
+        if (audioManager == null)
+        {
+            Debug.LogError("AudioManager not found in the scene!");
+        }
+    }
+
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -99,12 +111,16 @@ public class AnaPlayerController : MonoBehaviour
 
         if (anim.GetFloat("Speed") > 0.1f)
         {
+            //audioManager.PlaySFX(audioManager.walking);
+
             CreateDust();
         }
         else
         {
             dustEffect.Stop();
         }
+
+        //if(isWeaponEquipped) audioManager.PlaySFX(audioManager.running);
 
 
         if (isWeaponEquipped && Input.GetKeyDown(KeyCode.Space))
@@ -129,6 +145,7 @@ public class AnaPlayerController : MonoBehaviour
         staminaComponent.isRunning = isWeaponEquipped && direction.magnitude > 0;
         
     }
+    
 
     private void CreateDust()
     {

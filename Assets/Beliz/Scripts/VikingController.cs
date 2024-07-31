@@ -18,6 +18,17 @@ public class VikingController : MonoBehaviour
     private Transform playerTransform;
     private int currentHealth;
 
+    private AudioManagerSc audioManager;
+
+    void Awake()
+    {
+        audioManager = FindObjectOfType<AudioManagerSc>();
+        if (audioManager == null)
+        {
+            Debug.LogError("AudioManager not found in the scene!");
+        }
+    }
+
 
     void Start()
     {
@@ -123,6 +134,8 @@ public class VikingController : MonoBehaviour
 
     public void TakeDamage()
     {
+        audioManager.PlaySFX(audioManager.wounded);
+        audioManager.PlaySFX(audioManager.swordHitting);
         currentHealth--;
         if (currentHealth <= 0)
         {
@@ -133,7 +146,8 @@ public class VikingController : MonoBehaviour
     void Die()
     {
         Debug.Log("�LD�");
-        
+
+        audioManager.PlaySFX(audioManager.deathScream);
 
         StartCoroutine(DestroyingObjects());
         

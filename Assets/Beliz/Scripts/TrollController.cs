@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class TrollController : MonoBehaviour
 {
@@ -20,6 +21,19 @@ public class TrollController : MonoBehaviour
     private int currentHealth;
     private NavMeshAgent navMeshAgent;
 
+    private AudioManagerSc audioManager;
+
+    
+
+    void Awake()
+    {
+        audioManager = FindObjectOfType<AudioManagerSc>();
+        if (audioManager == null)
+        {
+            Debug.LogError("AudioManager not found in the scene!");
+        }
+    }
+
     void Start()
     {
         if (animator == null)
@@ -32,6 +46,8 @@ public class TrollController : MonoBehaviour
 
         currentHealth = maxHealth;
         StartCoroutine(PlayRandomAnimation());
+
+ 
     }
 
     void Update()
@@ -137,6 +153,8 @@ public class TrollController : MonoBehaviour
 
     public void TakeDamage()
     {
+        audioManager.PlaySFX(audioManager.wounded);
+        audioManager.PlaySFX(audioManager.swordHitting);
         currentHealth--;
         if (currentHealth <= 0)
         {
@@ -147,8 +165,10 @@ public class TrollController : MonoBehaviour
     void Die()
     {
         Debug.Log("Dead");
+        audioManager.PlaySFX(audioManager.monsterScream);
 
         StartCoroutine(DestroyingObjects());
+
     }
 
     IEnumerator DestroyingObjects()
@@ -159,6 +179,8 @@ public class TrollController : MonoBehaviour
         yield return new WaitForSeconds(2.0f);
 
         Destroy(gameObject);
+
+        SceneManager.LoadScene(2);
     }
 }
 

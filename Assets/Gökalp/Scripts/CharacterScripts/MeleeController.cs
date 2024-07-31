@@ -23,6 +23,17 @@ public class MeleeController : MonoBehaviour
         public Vector3 size;
     }
 
+    private AudioManagerSc audioManager;
+
+    void Awake()
+    {
+        audioManager = FindObjectOfType<AudioManagerSc>();
+        if (audioManager == null)
+        {
+            Debug.LogError("AudioManager not found in the scene!");
+        }
+    }
+
     void Start()
     {
         anim = GetComponentInChildren<Animator>();
@@ -62,6 +73,7 @@ public class MeleeController : MonoBehaviour
     {
         if (anim.GetBool("CanAttack"))
         {
+            audioManager.PlaySFX(audioManager.swordSwing);
             anim.SetTrigger("Attack");
             anim.SetInteger("AttackType", attackType);
             hittableRigidHandler.ClearCollisionList();

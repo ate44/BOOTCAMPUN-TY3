@@ -18,7 +18,17 @@ public class FireElementalController : MonoBehaviour
     private Transform playerTransform;
     private int currentHealth;
 
-    private EnemyCounter enemyCounter;
+
+    private AudioManagerSc audioManager;
+
+    void Awake()
+    {
+        audioManager = FindObjectOfType<AudioManagerSc>();
+        if (audioManager == null)
+        {
+            Debug.LogError("AudioManager not found in the scene!");
+        }
+    }
 
     void Start()
     {
@@ -29,6 +39,8 @@ public class FireElementalController : MonoBehaviour
 
         currentHealth = maxHealth;
         StartCoroutine(PlayRandomAnimation());
+
+
     }
 
     void Update()
@@ -124,6 +136,9 @@ public class FireElementalController : MonoBehaviour
 
     public void TakeDamage()
     {
+        audioManager.PlaySFX(audioManager.wounded);
+        audioManager.PlaySFX(audioManager.swordHitting);
+
         currentHealth--;
         if (currentHealth <= 0)
         {
@@ -135,12 +150,15 @@ public class FireElementalController : MonoBehaviour
     {
         Debug.Log("�LD�");
 
-        enemyCounter.counter++;
+        audioManager.PlaySFX(audioManager.deathScream);
 
-        Debug.Log(enemyCounter.counter);
+        //enemyCounter.counter++;
+
+        //Debug.Log(enemyCounter.counter);
 
         StartCoroutine(DestroyingObjects());
-        
+
+
     }
 
     IEnumerator DestroyingObjects()

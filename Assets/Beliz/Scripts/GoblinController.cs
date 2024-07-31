@@ -23,7 +23,20 @@ public class GoblinController : MonoBehaviour
 
     private NavMeshAgent goblin;
     public Transform PlayerTarget;
+
+    private AudioManagerSc audioManager;
+
     
+
+    void Awake()
+    {
+        audioManager = FindObjectOfType<AudioManagerSc>();
+        if (audioManager == null)
+        {
+            Debug.LogError("AudioManager not found in the scene!");
+        }
+    }
+
     void Start()
     {
         if (animator == null)
@@ -34,6 +47,8 @@ public class GoblinController : MonoBehaviour
         goblin = GetComponent<NavMeshAgent>();
         currentHealth = maxHealth;
         StartCoroutine(PlayRandomAnimation());
+
+
     }
 
     void Update()
@@ -129,6 +144,8 @@ public class GoblinController : MonoBehaviour
 
     public void TakeDamage()
     {
+        audioManager.PlaySFX(audioManager.wounded);
+        audioManager.PlaySFX(audioManager.swordHitting);
         currentHealth--;
         if (currentHealth <= 0)
         {
@@ -139,10 +156,13 @@ public class GoblinController : MonoBehaviour
     void Die()
     {
         Debug.Log("Dead");
-        
+
+        audioManager.PlaySFX(audioManager.monsterScream);
 
         StartCoroutine(DestroyingObjects());
-        
+
+
+
     }
 
     IEnumerator DestroyingObjects()

@@ -15,6 +15,6 @@ public class MainMenu : MonoBehaviour
     void LoadPlayScene()
     {
         
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(3);
     }
 }

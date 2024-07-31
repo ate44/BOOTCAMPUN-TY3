@@ -18,6 +18,17 @@ public class EarthElementalController : MonoBehaviour
     private Transform playerTransform;
     private int currentHealth;
 
+    private AudioManagerSc audioManager;
+
+    void Awake()
+    {
+        audioManager = FindObjectOfType<AudioManagerSc>();
+        if (audioManager == null)
+        {
+            Debug.LogError("AudioManager not found in the scene!");
+        }
+    }
+
 
     void Start()
     {
@@ -28,6 +39,8 @@ public class EarthElementalController : MonoBehaviour
 
         currentHealth = maxHealth;
         StartCoroutine(PlayRandomAnimation());
+
+
     }
 
     void Update()
@@ -123,6 +136,8 @@ public class EarthElementalController : MonoBehaviour
 
     public void TakeDamage()
     {
+        audioManager.PlaySFX(audioManager.wounded);
+        audioManager.PlaySFX(audioManager.swordHitting);
         currentHealth--;
         if (currentHealth <= 0)
         {
@@ -133,10 +148,13 @@ public class EarthElementalController : MonoBehaviour
     void Die()
     {
         Debug.Log("�LD�");
-        
+
+        audioManager.PlaySFX(audioManager.deathScream);
 
         StartCoroutine(DestroyingObjects());
-        
+
+
+
     }
 
     IEnumerator DestroyingObjects()
