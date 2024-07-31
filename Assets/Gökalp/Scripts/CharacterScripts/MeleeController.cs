@@ -30,6 +30,8 @@ public class MeleeController : MonoBehaviour
         hittableRigidHandler = GetComponent<HittableRigidHandler>();
         hittableRigidHandler.InitializePool(8);
         staminaComponent = GetComponent<Stamina>(); // Stamina bileþenini al
+
+        weaponCollider.enabled = false; // Baþlangýçta kýlýcýn çarpýþmasýný kapat
     }
 
     void Update()
@@ -44,6 +46,8 @@ public class MeleeController : MonoBehaviour
         }
 
         staminaComponent.isAttacking = anim.GetBool("IsAttacking"); // Saldýrý durumunu ayarla
+
+        weaponCollider.enabled = staminaComponent.isAttacking;
     }
 
     private void LateUpdate()
@@ -61,10 +65,14 @@ public class MeleeController : MonoBehaviour
             anim.SetTrigger("Attack");
             anim.SetInteger("AttackType", attackType);
             hittableRigidHandler.ClearCollisionList();
-
-            
+            weaponCollider.enabled = true; // Saldýrý sýrasýnda kýlýcý etkinleþtir
         }
+    }
 
+    // Animator'ýn saldýrý bitiþ olayýný iþleyin (eðer animasyon olaylarý eklenmiþse)
+    public void OnAttackEnd()
+    {
+        weaponCollider.enabled = false; // Saldýrý tamamlandýðýnda kýlýcý devre dýþý býrak
     }
 
     private void CheckTrail()

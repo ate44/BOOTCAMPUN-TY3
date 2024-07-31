@@ -2,10 +2,14 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+
+    private Stamina staminaController;
+
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
+
             FireElementalController enemy = other.GetComponent<FireElementalController>();
             GoblinController enemy2 = other.GetComponent<GoblinController>();
             TrollController enemy3 = other.GetComponent<TrollController>();
