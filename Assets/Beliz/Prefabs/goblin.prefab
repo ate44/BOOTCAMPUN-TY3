@@ -10,10 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 853297882278516389}
   - component: {fileID: 654230172764445020}
-  - component: {fileID: 1132896205790399668}
   m_Layer: 7
   m_Name: Collider
-  m_TagString: Untagged
+  m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54,19 +53,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.8141937, y: 0.6825219, z: 5.384903}
   m_Center: {x: -0.90709645, y: 0.15873931, z: -2.6919088}
---- !u!114 &1132896205790399668
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 663447228103450638}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0bb1fb8a53d35c4487e22c7def24f27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 5
 --- !u!1 &3411183883126095307
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,10 +129,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3422299897148635432}
   - component: {fileID: 4970074748077902299}
-  - component: {fileID: 5074698635399425369}
   m_Layer: 7
   m_Name: Collider (1)
-  m_TagString: Untagged
+  m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -181,25 +166,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 2.8141937, y: 0.6825219, z: 5.384903}
   m_Center: {x: -0.90709645, y: 0.15873931, z: -2.6919088}
---- !u!114 &5074698635399425369
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7128736614529303638}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0bb1fb8a53d35c4487e22c7def24f27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 10
 --- !u!1001 &6898760396044606071
 PrefabInstance:
   m_ObjectHideFlags: 0

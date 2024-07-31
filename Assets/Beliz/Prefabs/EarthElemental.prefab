@@ -312,10 +312,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4360885398969472368}
   - component: {fileID: 8764286772058602829}
-  - component: {fileID: 6159740163873209345}
   m_Layer: 7
   m_Name: Collider
-  m_TagString: Untagged
+  m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -356,19 +355,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.17
   m_Center: {x: 0.31, y: 0, z: 0}
---- !u!114 &6159740163873209345
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1447726384392425754}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0bb1fb8a53d35c4487e22c7def24f27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 5
 --- !u!1 &1505423045085184544
 GameObject:
   m_ObjectHideFlags: 0
