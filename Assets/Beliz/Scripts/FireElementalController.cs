@@ -18,6 +18,7 @@ public class FireElementalController : MonoBehaviour
     private Transform playerTransform;
     private int currentHealth;
 
+    private EnemyCounter enemyCounter;
 
     void Start()
     {
@@ -133,7 +134,10 @@ public class FireElementalController : MonoBehaviour
     void Die()
     {
         Debug.Log("�LD�");
-        
+
+        enemyCounter.counter++;
+
+        Debug.Log(enemyCounter.counter);
 
         StartCoroutine(DestroyingObjects());
         

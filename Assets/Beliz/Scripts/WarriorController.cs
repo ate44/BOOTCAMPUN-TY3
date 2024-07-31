@@ -18,6 +18,8 @@ public class WarriorController : MonoBehaviour
     private Transform playerTransform;
     private int currentHealth;
 
+    private EnemyCounter enemyCounter;
+
 
     void Start()
     {
@@ -133,6 +135,10 @@ public class WarriorController : MonoBehaviour
     void Die()
     {
         Debug.Log("�LD�");
+
+        enemyCounter.counter++;
+
+        Debug.Log(enemyCounter.counter);
         
 
         StartCoroutine(DestroyingObjects());

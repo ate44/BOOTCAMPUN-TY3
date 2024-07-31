@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class CanBari : MonoBehaviour
 {
@@ -21,6 +21,9 @@ public class CanBari : MonoBehaviour
     {
         gercekScale = can / maxCan;
 
+        Debug.Log(can);
+        Debug.Log(gercekScale);
+
         if (transform.localScale.x > gercekScale)
         {
             transform.localScale = new Vector3(transform.localScale.x - (transform.localScale.x - gercekScale) / animasyonYavasligi, transform.localScale.y, transform.localScale.z);
@@ -39,26 +42,6 @@ public class CanBari : MonoBehaviour
             SceneManager.LoadScene(3);
         }
 
-        if (Input.GetKeyDown("a") && can > 0)
-        {
-            can -= 10;
-            HasarAlindi();
-        }
-        if (Input.GetKeyDown("s") && can > 0)
-        {
-            can -= 5;
-            HasarAlindi();
-        }
-        if (Input.GetKeyDown("d") && can > 0)
-        {
-            can -= 20;
-            HasarAlindi();
-        }
-        if (Input.GetKeyDown("h") && can < maxCan)
-        {
-            can += 20;
-        }
-
         if (can > maxCan)
         {
             can = maxCan;
@@ -70,7 +53,7 @@ public class CanBari : MonoBehaviour
         }
     }
 
-    void HasarAlindi()
+    public void HasarAlindi()
     {
         StopAllCoroutines();
         StartCoroutine(KirmiziEkranEfekti());
