@@ -1,16 +1,20 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// MeleeController sýnýfý, yakýn dövüþ saldýrýlarýný kontrol eder
 public class MeleeController : MonoBehaviour
 {
-    // Animator bileþenine referans
     Animator anim;
-
     public WeaponHandler weaponHandler;
     private BoxCollider weaponCollider;
+    private LinkedList<BufferObj> trailList = new LinkedList<BufferObj>();
+    private LinkedList<BufferObj> trailFillerList = new LinkedList<BufferObj>();
+    public bool debugTrail = false;
+    private int maxFrameBuffer = 2;
+    public LayerMask hitLayers;
+    int attackId = 0;
+    private HittableRigidHandler hittableRigidHandler;
+    private Stamina staminaComponent; // Stamina bileþeni
 
     public struct BufferObj
     {
@@ -19,41 +23,27 @@ public class MeleeController : MonoBehaviour
         public Vector3 size;
     }
 
-    private LinkedList<BufferObj> trailList = new LinkedList<BufferObj>();
-    private LinkedList<BufferObj> trailFillerList = new LinkedList<BufferObj>();
-    public bool debugTrail = false;
-    private int maxFrameBuffer = 2;
-
-    public LayerMask hitLayers;
-
-    int attackId = 0;
-
-    private HittableRigidHandler hittableRigidHandler;
-
-    //public ParticleSystem swordSlashEffect;
-
-
     void Start()
     {
-        // Animator bileþenini al
         anim = GetComponentInChildren<Animator>();
         weaponCollider = (BoxCollider)weaponHandler.weapon.GetComponent<Collider>();
         hittableRigidHandler = GetComponent<HittableRigidHandler>();
         hittableRigidHandler.InitializePool(8);
+        staminaComponent = GetComponent<Stamina>(); // Stamina bileþenini al
     }
 
     void Update()
     {
-        // Sol fare tuþuna basýldýðýnda saldýrý tipi 1 olarak ayarla
         if (Input.GetMouseButtonDown(0)) // left click
         {
             SetAttack(1);
         }
-        // Sað fare tuþuna basýldýðýnda saldýrý tipi 2 olarak ayarla
         else if (Input.GetMouseButtonDown(1)) // right click
         {
             SetAttack(2);
         }
+
+        staminaComponent.isAttacking = anim.GetBool("IsAttacking"); // Saldýrý durumunu ayarla
     }
 
     private void LateUpdate()
@@ -64,27 +54,17 @@ public class MeleeController : MonoBehaviour
         }
     }
 
-    // Saldýrý ayarlarýný belirleyen metod
     private void SetAttack(int attackType)
     {
-        // Animator'daki "CanAttack" bool parametresi true ise saldýrý baþlat
         if (anim.GetBool("CanAttack"))
         {
-            //attackId++;
-
-            // "Attack" tetikleyicisini ayarla
             anim.SetTrigger("Attack");
-            // Saldýrý tipini belirle
             anim.SetInteger("AttackType", attackType);
             hittableRigidHandler.ClearCollisionList();
 
-            //slash efekti buraya gelecek
-            //CreateSwordSlash();
+            
         }
-        else
-        {
-            //swordSlashEffect.Stop();
-        }
+
     }
 
     private void CheckTrail()
@@ -96,7 +76,7 @@ public class MeleeController : MonoBehaviour
         trailList.AddFirst(bo);
 
         if (trailList.Count > maxFrameBuffer)
-        { //topladýðýmýz frame sayýsýný sýnýrlýyoruz
+        {
             trailList.RemoveLast();
         }
         if (trailList.Count > 1)
@@ -189,9 +169,4 @@ public class MeleeController : MonoBehaviour
             }
         }
     }
-
-    //private void CreateSwordSlash()
-    //{
-    //    swordSlashEffect.Play();
-    //}
 }

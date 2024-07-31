@@ -1,47 +1,57 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Stamina : MonoBehaviour
 {
     public float stamina;
-    public float mValue;
+    public float normalWalkDecrease;
+    public float specialWalkDecrease;
+    public float attackDecrease;
     public Slider StaminaBar;
-    float maxStamina;
+    private float maxStamina;
+    public bool isMoving;
+    public bool isRunning;
+    public bool isAttacking;
+
     void Start()
     {
         maxStamina = stamina;
-        StaminaBar.value = maxStamina;
+        StaminaBar.maxValue = maxStamina;
+        StaminaBar.value = stamina;
     }
 
-    
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftShift))
-            EnerjiAzalt();
-        else if (stamina != maxStamina)
+        if (isAttacking)
+        {
+            EnerjiAzalt(attackDecrease);
+        }
+        else if (isRunning)
+        {
+            EnerjiAzalt(specialWalkDecrease);
+        }
+        else if (isMoving)
+        {
+            EnerjiAzalt(normalWalkDecrease);
+        }
+        else
+        {
             EnerjiCogalt();
+        }
 
         StaminaBar.value = stamina;
-        if (stamina >= 30f)
-            stamina = 30f;
-
-        if (stamina <= 0f)
-            stamina = 0f;
-            
-
+        stamina = Mathf.Clamp(stamina, 0f, maxStamina);
     }
 
-
-    private void EnerjiAzalt()
+    private void EnerjiAzalt(float miktar)
     {
-        if (stamina != 0)
-            stamina -= mValue * Time.deltaTime;
+        if (stamina > 0)
+            stamina -= miktar * Time.deltaTime;
     }
+
     private void EnerjiCogalt()
     {
-        
-            stamina += mValue * Time.deltaTime;
+        if (stamina < maxStamina)
+            stamina += normalWalkDecrease * Time.deltaTime; // Enerji geri kazaným hýzý normal yürüyüþ hýzýna eþit
     }
 }

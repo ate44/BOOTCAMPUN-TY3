@@ -1,7 +1,4 @@
-using System;
-
 using UnityEngine;
-using Cinemachine;
 
 public class AnaPlayerController : MonoBehaviour
 {
@@ -21,12 +18,14 @@ public class AnaPlayerController : MonoBehaviour
     public ParticleSystem dustEffect;
 
     private Transform closestTarget;
+    private Stamina staminaComponent;
 
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         mainCamera = Camera.main;
         anim = GetComponentInChildren<Animator>();
+        staminaComponent = GetComponent<Stamina>();
     }
 
     private void Update()
@@ -43,6 +42,8 @@ public class AnaPlayerController : MonoBehaviour
         {
             HandleRotation();
         }
+
+        
     }
 
     private void HandleRotation()
@@ -93,6 +94,7 @@ public class AnaPlayerController : MonoBehaviour
             dustEffect.Stop();
         }
 
+
         if (isWeaponEquipped && Input.GetKeyDown(KeyCode.Space))
         {
             anim.SetBool("IsTargetLocked", !isTargetLocked);
@@ -110,6 +112,10 @@ public class AnaPlayerController : MonoBehaviour
                 closestTarget = null;
             }
         }
+
+        staminaComponent.isMoving = direction.magnitude > 0;
+        staminaComponent.isRunning = isWeaponEquipped && direction.magnitude > 0;
+        
     }
 
     private void CreateDust()
