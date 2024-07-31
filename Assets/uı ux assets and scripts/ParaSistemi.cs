@@ -12,18 +12,24 @@ public class ParaSistemi : MonoBehaviour
     public Button Buttonforceshieldpotion;
     public AudioClip satinAlmaSesi;
     public AudioClip iadeEtmeSesi;
-    public AudioClip uyariSesi;  // Uyarý sesi
+    public AudioClip uyariSesi;
 
     public int iksirSayisiExtraDamage = 0;
     public int iksirSayisiEnergy = 0;
     public int iksirSayisiHealth = 0;
     public int iksirSayisiShield = 0;
-
+    public int cansayisi = 0;
+    public int enerjisayisi = 0;
+    public int extrahasar = 0;
+    public int kalkan = 0;
     public TextMeshProUGUI iksirTextextradamage;
     public TextMeshProUGUI iksirTextheal;
     public TextMeshProUGUI iksirTextshield;
     public TextMeshProUGUI iksirTextenergy;
-
+    public TextMeshProUGUI cansayisitext;
+    public TextMeshProUGUI enerjisayisitext;
+    public TextMeshProUGUI extrahasartext;
+    public TextMeshProUGUI kalkantext;
     private AudioSource audioSource;
 
     void Start()
@@ -40,7 +46,7 @@ public class ParaSistemi : MonoBehaviour
         if (iksirTextenergy == null) Debug.LogError("Energy Potion Text is not assigned.");
         if (satinAlmaSesi == null) Debug.LogError("Satýn Alma Sesi is not assigned.");
         if (iadeEtmeSesi == null) Debug.LogError("Ýade Etme Sesi is not assigned.");
-        if (uyariSesi == null) Debug.LogError("Uyarý Sesi is not assigned.");  // Uyarý sesi kontrolü
+        if (uyariSesi == null) Debug.LogError("Uyarý Sesi is not assigned.");
 
         // Audio Source'u al
         audioSource = GetComponent<AudioSource>();
@@ -80,6 +86,24 @@ public class ParaSistemi : MonoBehaviour
                 IadeEtShield();
             }
         }
+
+        // Ýksir kullanma iþlemleri için tuþ kontrolleri
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            KullanExtraDamage();
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            KullanEnergy();
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            KullanHealth();
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            KullanShield();
+        }
     }
 
     void IksirKullanExtraDamage()
@@ -88,6 +112,7 @@ public class ParaSistemi : MonoBehaviour
         {
             para -= 100;
             iksirSayisiExtraDamage++;
+            extrahasar++;
             ParaGuncelle();
             IksirGuncelle();
             OynatSatinAlmaSesi();
@@ -105,6 +130,7 @@ public class ParaSistemi : MonoBehaviour
         {
             para -= 50;
             iksirSayisiEnergy++;
+            enerjisayisi++;
             ParaGuncelle();
             IksirGuncelle();
             OynatSatinAlmaSesi();
@@ -122,9 +148,11 @@ public class ParaSistemi : MonoBehaviour
         {
             para -= 50;
             iksirSayisiHealth++;
+            cansayisi++;
             ParaGuncelle();
             IksirGuncelle();
             OynatSatinAlmaSesi();
+            Debug.Log("healthkullanýldý " + cansayisi);
         }
         else
         {
@@ -139,6 +167,7 @@ public class ParaSistemi : MonoBehaviour
         {
             para -= 100;
             iksirSayisiShield++;
+            kalkan++;
             ParaGuncelle();
             IksirGuncelle();
             OynatSatinAlmaSesi();
@@ -147,6 +176,70 @@ public class ParaSistemi : MonoBehaviour
         {
             OynatUyariSesi();
             Debug.Log("Yetersiz para!");
+        }
+    }
+
+    void KullanExtraDamage()
+    {
+        if (extrahasar > 0 && iksirSayisiExtraDamage > 0)
+        {
+            extrahasar--;
+            iksirSayisiExtraDamage--;
+            IksirGuncelle();
+            Debug.Log("Extra Damage Potion kullanýldý, kalan sayýsý: " + iksirSayisiExtraDamage);
+        }
+        else
+        {
+            OynatUyariSesi();
+            Debug.Log("Kullanýlacak ekstra hasar iksiri yok!");
+        }
+    }
+
+    void KullanEnergy()
+    {
+        if (enerjisayisi > 0 && iksirSayisiEnergy > 0)
+        {
+            enerjisayisi--;
+            iksirSayisiEnergy--;
+            IksirGuncelle();
+            Debug.Log("Energy Potion kullanýldý, kalan sayýsý: " + iksirSayisiEnergy);
+        }
+        else
+        {
+            OynatUyariSesi();
+            Debug.Log("Kullanýlacak enerji iksiri yok!");
+        }
+    }
+
+    void KullanHealth()
+    {
+        if (cansayisi > 0 && iksirSayisiHealth > 0)
+        {
+            cansayisi--;
+            iksirSayisiHealth--;
+            IksirGuncelle();
+            Debug.Log("Health Potion kullanýldý, kalan sayýsý: " + iksirSayisiHealth);
+        }
+        else
+        {
+            OynatUyariSesi();
+            Debug.Log("Kullanýlacak saðlýk iksiri yok!");
+        }
+    }
+
+    void KullanShield()
+    {
+        if (kalkan > 0 && iksirSayisiShield > 0)
+        {
+            kalkan--;
+            iksirSayisiShield--;
+            IksirGuncelle();
+            Debug.Log("Shield Potion kullanýldý, kalan sayýsý: " + iksirSayisiShield);
+        }
+        else
+        {
+            OynatUyariSesi();
+            Debug.Log("Kullanýlacak kalkan iksiri yok!");
         }
     }
 
@@ -229,6 +322,11 @@ public class ParaSistemi : MonoBehaviour
         iksirTextheal.text = iksirSayisiHealth.ToString();
         iksirTextshield.text = iksirSayisiShield.ToString();
         iksirTextenergy.text = iksirSayisiEnergy.ToString();
+        cansayisitext.text = cansayisi.ToString();
+        kalkantext.text = kalkan.ToString();
+        extrahasartext.text = extrahasar.ToString();
+        enerjisayisitext.text = enerjisayisi.ToString();
+        Debug.Log("Can sayýsý güncellendi, yeni deðer: " + cansayisi);
     }
 
     void OynatSatinAlmaSesi()
