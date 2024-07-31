@@ -5,9 +5,11 @@ using UnityEngine.UI;
 
 public class CanBari : MonoBehaviour
 {
-    public float can, animasyonYavasligi;
-    private float maxCan, gercekScale;
-    public GameObject bar;
+    public float can = 100f;
+    public float animasyonYavasligi = 5f;
+    private float maxCan;
+    private float gercekScale;
+    public Image bar; // Can barý UI elemaný
     public Image kirmiziEkran; // Kýrmýzý ekran için Image bileþeni
     public float kirmiziEkranSuresi = 0.5f; // Kýrmýzý ekranýn ne kadar sürede kaybolacaðý
     public float kirmiziEkranAlfa = 0.5f; // Kýrmýzý ekranýn alfa deðeri
@@ -15,31 +17,29 @@ public class CanBari : MonoBehaviour
     void Start()
     {
         maxCan = can;
+        if (bar != null)
+        {
+            bar.fillAmount = can / maxCan; // Barýn baþlangýç deðerini ayarla
+        }
     }
 
     void Update()
     {
         gercekScale = can / maxCan;
 
-        Debug.Log(can);
-        Debug.Log(gercekScale);
-
-        if (transform.localScale.x > gercekScale)
+        if (bar != null)
         {
-            transform.localScale = new Vector3(transform.localScale.x - (transform.localScale.x - gercekScale) / animasyonYavasligi, transform.localScale.y, transform.localScale.z);
-        }
-        if (transform.localScale.x < gercekScale)
-        {
-            transform.localScale = new Vector3(transform.localScale.x + (gercekScale - transform.localScale.x) / animasyonYavasligi, transform.localScale.y, transform.localScale.z);
+            // Can oranýný bar'a uygula
+            bar.fillAmount = Mathf.Lerp(bar.fillAmount, gercekScale, Time.deltaTime * animasyonYavasligi);
         }
 
         if (can <= 0)
         {
             if (bar != null)
             {
-                Destroy(bar);
+                Destroy(bar.gameObject); // Bar GameObject'ini yok et
             }
-            SceneManager.LoadScene(3);
+            SceneManager.LoadScene(3); // Oyuncu ölürse sahneyi deðiþtir
         }
 
         if (can > maxCan)

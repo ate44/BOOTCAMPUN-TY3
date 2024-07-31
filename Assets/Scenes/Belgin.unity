@@ -3854,14 +3854,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2194006043191894178, guid: 4f21ab5f01dc9de4baeb2d7c4c0848ab, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4516267533751111154, guid: 4f21ab5f01dc9de4baeb2d7c4c0848ab, type: 3}
-      propertyPath: damage
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 4579009180531846175, guid: 4f21ab5f01dc9de4baeb2d7c4c0848ab, type: 3}
       propertyPath: m_Name
       value: Character_Viking_Black
@@ -9792,24 +9784,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6795866533977572088, guid: d78a5ff59ee2c2c4eae750d89fb64b37, type: 3}
   m_PrefabInstance: {fileID: 1330322890}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &800404665
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 800404658}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21d9c8842a4cb79449f0e177a7d4d1a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  can: 100
-  animasyonYavasligi: 10
-  bar: {fileID: 1902389855}
-  kirmiziEkran: {fileID: 743150580}
-  kirmiziEkranSuresi: 0.5
-  kirmiziEkranAlfa: 0.1
 --- !u!1001 &801977241
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14122,6 +14096,22 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.0000007813664
       objectReference: {fileID: 0}
+    - target: {fileID: 2883926076963741387, guid: d78a5ff59ee2c2c4eae750d89fb64b37, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.000000014901161
+      objectReference: {fileID: 0}
+    - target: {fileID: 2989744396498848439, guid: d78a5ff59ee2c2c4eae750d89fb64b37, type: 3}
+      propertyPath: bar
+      value: 
+      objectReference: {fileID: 1902389855}
+    - target: {fileID: 2989744396498848439, guid: d78a5ff59ee2c2c4eae750d89fb64b37, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2989744396498848439, guid: d78a5ff59ee2c2c4eae750d89fb64b37, type: 3}
+      propertyPath: kirmiziEkran
+      value: 
+      objectReference: {fileID: 743150580}
     - target: {fileID: 3217090608722199664, guid: d78a5ff59ee2c2c4eae750d89fb64b37, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.0000000010957848
@@ -14340,19 +14330,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8484435925097599996, guid: d78a5ff59ee2c2c4eae750d89fb64b37, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0000000018623373
+      value: 0.0000000018623373
       objectReference: {fileID: 0}
     - target: {fileID: 8484435925097599996, guid: d78a5ff59ee2c2c4eae750d89fb64b37, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -3.3880575e-11
+      value: 3.3880575e-11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6795866533977572088, guid: d78a5ff59ee2c2c4eae750d89fb64b37, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 800404665}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d78a5ff59ee2c2c4eae750d89fb64b37, type: 3}
 --- !u!1001 &1335201691
 PrefabInstance:

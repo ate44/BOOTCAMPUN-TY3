@@ -153,7 +153,7 @@ Transform:
   m_GameObject: {fileID: 824477027695550844}
   serializedVersion: 2
   m_LocalRotation: {x: 0.01818949, y: -0.000000029802322, z: -0, w: 0.99983466}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.0000000010957848, y: -0.000002752257, z: 0.0000007813664}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1585,7 +1585,6 @@ GameObject:
   - component: {fileID: 6009895779956191121}
   - component: {fileID: 3405930558294291171}
   - component: {fileID: 742693230937840730}
-  - component: {fileID: 2989744396498848439}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1711,24 +1710,6 @@ MonoBehaviour:
   isMoving: 0
   isRunning: 0
   isAttacking: 0
---- !u!114 &2989744396498848439
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6795866533977572088}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21d9c8842a4cb79449f0e177a7d4d1a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  can: 100
-  animasyonYavasligi: 10
-  bar: {fileID: 0}
-  kirmiziEkran: {fileID: 0}
-  kirmiziEkranSuresi: 0.5
-  kirmiziEkranAlfa: 0.1
 --- !u!1 &7210159113479991243
 GameObject:
   m_ObjectHideFlags: 3
@@ -2626,6 +2607,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 113364, guid: dac2afd5e1dda1c4d9fe05cf141b47f0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8867923011234271050}
+    - targetCorrespondingSourceObject: {fileID: 113364, guid: dac2afd5e1dda1c4d9fe05cf141b47f0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2148210291226242180}
+    - targetCorrespondingSourceObject: {fileID: 113364, guid: dac2afd5e1dda1c4d9fe05cf141b47f0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2605397031441173374}
     - targetCorrespondingSourceObject: {fileID: 416576160506486060, guid: dac2afd5e1dda1c4d9fe05cf141b47f0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3969890326598110907}
@@ -2705,6 +2692,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.55, y: 1.54, z: 0.46}
   m_Center: {x: 0, y: 0.96, z: 0}
+--- !u!114 &2148210291226242180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3215315944207297661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0bb1fb8a53d35c4487e22c7def24f27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+--- !u!114 &2605397031441173374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3215315944207297661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21d9c8842a4cb79449f0e177a7d4d1a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  can: 100
+  animasyonYavasligi: 10
+  bar: {fileID: 0}
+  kirmiziEkran: {fileID: 0}
+  kirmiziEkranSuresi: 0.5
+  kirmiziEkranAlfa: 0.1
 --- !u!4 &3215315944207713569 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 463752, guid: dac2afd5e1dda1c4d9fe05cf141b47f0, type: 3}

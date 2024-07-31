@@ -9,11 +9,11 @@ public class EnemyAttackCollider : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // Eðer çarpýþan nesne "Player" tagine sahipse
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Attack"))
         {
             Debug.Log("1");
             // Player nesnesinin CanBari scriptine eriþim saðla
-            CanBari playerHealth = other.GetComponentInParent<CanBari>();
+            CanBari playerHealth = GetComponent<CanBari>();
             if (playerHealth != null)
             {
                 Debug.Log("2");
@@ -21,6 +21,10 @@ public class EnemyAttackCollider : MonoBehaviour
                 playerHealth.can -= damage;
                 playerHealth.HasarAlindi();
                 Debug.Log("Player hit! Health: " + playerHealth.can);
+            }
+            else
+            {
+                Debug.Log("yok");
             }
         }
     }
