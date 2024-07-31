@@ -1118,7 +1118,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &773331566
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1713,6 +1713,7 @@ MonoBehaviour:
   swordSwing: {fileID: 8300000, guid: 37bbb2cc2cdab60449a253fbc80597a5, type: 3}
   wounded: {fileID: 8300000, guid: be921aa169790514c8a6d84829e634e1, type: 3}
   walking: {fileID: 8300000, guid: fa499753ebdea664da1686ba46841dbe, type: 3}
+  usingSpell: {fileID: 8300000, guid: 96e222739f1378c43ba57f2bf7ad08d6, type: 3}
 --- !u!1 &2096637297
 GameObject:
   m_ObjectHideFlags: 0

@@ -22,6 +22,7 @@ public class AudioManagerSc : MonoBehaviour
     public AudioClip swordSwing;
     public AudioClip wounded;
     public AudioClip walking;
+    public AudioClip usingSpell;
 
 
 

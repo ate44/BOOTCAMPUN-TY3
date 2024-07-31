@@ -32,6 +32,17 @@ public class ParaSistemi : MonoBehaviour
     public TextMeshProUGUI kalkantext;
     private AudioSource audioSource;
 
+    private AudioManagerSc audioManager;
+
+    void Awake()
+    {
+        audioManager = FindObjectOfType<AudioManagerSc>();
+        if (audioManager == null)
+        {
+            Debug.LogError("AudioManager not found in the scene!");
+        }
+    }
+
     void Start()
     {
         // Referanslarýn doðru þekilde atanýp atanmadýðýný kontrol edin
@@ -167,6 +178,7 @@ public class ParaSistemi : MonoBehaviour
     {
         if (extrahasar > 0)
         {
+            audioManager.PlaySFX(audioManager.usingSpell);
             extrahasar -= 1;
             iksirSayisiExtraDamage -= 1;
             IksirGuncelle();
@@ -183,6 +195,8 @@ public class ParaSistemi : MonoBehaviour
     {
         if (enerjisayisi > 0)
         {
+            audioManager.PlaySFX(audioManager.usingSpell);
+
             enerjisayisi -= 1;
             iksirSayisiEnergy -= 1;
             IksirGuncelle();
@@ -199,6 +213,8 @@ public class ParaSistemi : MonoBehaviour
     {
         if (cansayisi > 0)
         {
+            audioManager.PlaySFX(audioManager.usingSpell);
+
             cansayisi -= 1;
             iksirSayisiHealth -= 1;
             IksirGuncelle();
@@ -215,6 +231,8 @@ public class ParaSistemi : MonoBehaviour
     {
         if (kalkan > 0)
         {
+            audioManager.PlaySFX(audioManager.usingSpell);
+
             kalkan -= 1;
             iksirSayisiShield -= 1;
             IksirGuncelle();
