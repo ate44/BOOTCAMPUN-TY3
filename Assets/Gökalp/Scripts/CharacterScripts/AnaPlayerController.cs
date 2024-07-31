@@ -45,17 +45,19 @@ public class AnaPlayerController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
+            Debug.Log("öNCE");
             ps.KullanExtraDamage();
+            Debug.Log("Sonra");
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             ps.KullanEnergy();
         }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             ps.KullanHealth();
         }
-        if (Input.GetKeyDown(KeyCode.Alpha4))
+        else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             ps.KullanShield();
         }
