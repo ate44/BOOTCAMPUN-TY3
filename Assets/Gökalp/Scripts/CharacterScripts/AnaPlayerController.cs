@@ -19,13 +19,14 @@ public class AnaPlayerController : MonoBehaviour
 
     private Transform closestTarget;
     private Stamina staminaComponent;
-
+    private ParaSistemi ps;
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         mainCamera = Camera.main;
         anim = GetComponentInChildren<Animator>();
         staminaComponent = GetComponent<Stamina>();
+        ps = GetComponent<ParaSistemi>();
     }
 
     private void Update()
@@ -42,8 +43,23 @@ public class AnaPlayerController : MonoBehaviour
         {
             HandleRotation();
         }
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            ps.KullanExtraDamage();
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            ps.KullanEnergy();
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            ps.KullanHealth();
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            ps.KullanShield();
+        }
 
-        
     }
 
     private void HandleRotation()

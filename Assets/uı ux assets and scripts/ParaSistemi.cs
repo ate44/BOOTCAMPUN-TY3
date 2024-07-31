@@ -179,7 +179,7 @@ public class ParaSistemi : MonoBehaviour
         }
     }
 
-    void KullanExtraDamage()
+   public void KullanExtraDamage()
     {
         if (extrahasar > 0 && iksirSayisiExtraDamage > 0)
         {
@@ -195,7 +195,7 @@ public class ParaSistemi : MonoBehaviour
         }
     }
 
-    void KullanEnergy()
+   public void KullanEnergy()
     {
         if (enerjisayisi > 0 && iksirSayisiEnergy > 0)
         {
@@ -211,7 +211,7 @@ public class ParaSistemi : MonoBehaviour
         }
     }
 
-    void KullanHealth()
+  public  void KullanHealth()
     {
         if (cansayisi > 0 && iksirSayisiHealth > 0)
         {
@@ -227,7 +227,7 @@ public class ParaSistemi : MonoBehaviour
         }
     }
 
-    void KullanShield()
+  public  void KullanShield()
     {
         if (kalkan > 0 && iksirSayisiShield > 0)
         {
