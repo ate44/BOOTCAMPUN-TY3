@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,20 +25,19 @@ public class AudioManagerSc : MonoBehaviour
     public AudioClip walking;
     public AudioClip usingSpell;
 
-
-
     private void Awake()
     {
-        // Tek bir AudioManager nesnesi oluþturulduðunda diðer sahnelere aktarýlýr.
+        // Ensure a single instance of AudioManager persists across scenes.
         DontDestroyOnLoad(gameObject);
 
-        // audioManager nesnesini bulmak için sahnede zaten baþka bir AudioManager var mý diye kontrol edin.
-        if (FindObjectsOfType<AudioManager>().Length > 1)
+        // Check if another AudioManager exists in the scene.
+        if (FindObjectsOfType<AudioManagerSc>().Length > 1)
         {
-            // Eðer baþka bir AudioManager nesnesi varsa, bu nesneyi yok edin.
+            // Destroy this instance if another AudioManager already exists.
             Destroy(gameObject);
         }
     }
+
     private void Start()
     {
         m_Source.clip = mainBackground;
@@ -50,6 +50,18 @@ public class AudioManagerSc : MonoBehaviour
         SFXSource.PlayOneShot(clip);
     }
 
+    public bool IsPlaying(AudioClip clip)
+    {
+        // Check if the provided clip is currently playing on the SFXSource.
+        return SFXSource.isPlaying && SFXSource.clip == clip;
+    }
 
-    
+    public void StopSFX(AudioClip clip)
+    {
+        // Stop the SFXSource if the provided clip is currently playing.
+        if (SFXSource.isPlaying && SFXSource.clip == clip)
+        {
+            SFXSource.Stop();
+        }
+    }
 }

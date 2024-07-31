@@ -78,6 +78,6 @@ public class Stamina : MonoBehaviour
     private void EnerjiCogalt()
     {
         if (stamina < maxStamina)
-            stamina += normalWalkDecrease * Time.deltaTime; // Enerji geri kazaným hýzý normal yürüyüþ hýzýna eþit
+            stamina += 10*(normalWalkDecrease * Time.deltaTime); // Enerji geri kazaným hýzý normal yürüyüþ hýzýna eþit
     }
 }
